@@ -37,15 +37,17 @@ public class SudokuSolver {
         states.add(new State(cells, 0,0).start());
         //System.out.println(states.get(0));
         //System.out.println(states.get(0).getValuesInBox(4));
-        //System.out.println(boxChoice);
+        function(states.get(0));
+
+
 
         boolean cond = true;
         int levelCounter = 1;
         int parentCounter = 0;
         long sTime = System.nanoTime();
         long eTime = 0;
-        while(cond){
-            int boxChoice = findCrowdBox(states.get(stateCounter));
+        /*while(cond){
+            int boxChoice = findCrowdedBox(states.get(stateCounter));
             int c1 = 0;
             switch (boxChoice){
                 case 1:
@@ -85,30 +87,97 @@ public class SudokuSolver {
                 System.out.println(states.get(stateCounter));
             }
         }
-
+*/
         long timeSpent = eTime - sTime;
         System.out.println(timeSpent + " nano seconds!");
 
 
     }
 
-    public int findCrowdBox(State state){
-        int numOfZeros = 0;
+    public int findCrowdedBox(State state){
+        int box = 1;
         int max = 4;
-        int boxNum = 1;
-        char[] nums;
+
         for (int i = 1; i <= 4; i++){
-            nums = state.getValuesInBox(i).toCharArray();
-            for (char digits : nums){
-                if (digits == '0') numOfZeros++;
+            int numOfZeroes = 0;
+
+            char[] values = state.getValuesInBox(i).toCharArray();
+            for(char value : values){
+                if(value== '0') numOfZeroes++;
             }
-            if(max > numOfZeros && numOfZeros != 0) {
-                max = numOfZeros;
-                boxNum = i;
+            if(numOfZeroes < max && numOfZeroes != 0){
+                box = i;
+                max = numOfZeroes;
             }
-            numOfZeros = 0;
+
         }
-        return boxNum;
+        return box;
+    }
+
+    public int findCrowdedRow(State state){
+        int row = 1;
+        int max = 4;
+
+        for (int i = 1; i <= 4; i++){
+            int numOfZeroes = 0;
+
+            char[] values = state.getValuesInRow(i).toCharArray();
+            for(char value : values){
+                if(value== '0') numOfZeroes++;
+            }
+            if(numOfZeroes < max && numOfZeroes != 0){
+                row = i;
+                max = numOfZeroes;
+            }
+        }
+        return row;
+    }
+
+    public int findCrowdedCol(State state){
+        int col = 1;
+        int max = 4;
+
+        for (int i = 1; i <= 4; i++){
+            int numOfZeroes = 0;
+
+            char[] values = state.getValuesInCol(i).toCharArray();
+            for(char value : values){
+                if(value== '0') numOfZeroes++;
+            }
+            if(numOfZeroes < max && numOfZeroes != 0){
+                col = i;
+                max = numOfZeroes;
+            }
+        }
+        return col;
+    }
+
+    /*public Integer[] findPosOfEmpty(State state){
+        ArrayList<Integer> pos = new ArrayList<>();
+        int counter = 0;
+
+        for (int i = 0; i < 16; i++){
+            if(state.cells.get(i).getValue() == 0) pos.add(i);
+        }
+
+        return pos.toArray(new Integer[0]);
+    }
+
+    public int cellWithMostAdj(State state){
+        int cellPos = 0;
+        Integer[] arr = findPosOfEmpty(state);
+
+
+
+
+        return cellPos;
+    }*/
+    public void function(State state){
+        int box = findCrowdedBox(state);
+        int row = findCrowdedRow(state);
+        int col = findCrowdedCol(state);
+
+        //Maybe find a common object/cell
     }
 
 
