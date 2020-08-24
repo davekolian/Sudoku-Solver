@@ -1,6 +1,6 @@
 package code;
 
-public class Cell {
+public class Cell implements Cloneable{
     private int pos;
     private int row;
     private int col;
@@ -39,4 +39,9 @@ public class Cell {
         this.value = value;
     }
 
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        Cell clone = (Cell)super.clone();
+        return clone;
+    }
 }

@@ -1,22 +1,23 @@
 package code;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class State {
 
-    ArrayList<Cell> cells = new ArrayList<>(16);
+    List<Cell> cells = new ArrayList<>();
     int level;
-    int parent;
 
-    public State(ArrayList<Cell> cells, int level, int parent) {
+    public State(List<Cell> cells) {
         this.cells = cells;
-        this.level = level;
-        this.parent = parent;
+    }
+
+    public State() {
     }
 
     public State start(){
-        State startState = new State(cells, 0, 0);
-        int[][] input = {{4, 3, 0, 0}, {1, 2, 3, 0}, {0, 0, 2, 0}, {2, 1, 0, 0}};
+        State startState = new State();
+        int[][] input = {{1, 2, 0, 0}, {0, 0, 2, 1}, {2, 4, 0, 0}, {0, 0, 4, 2}};
         int x = 0;
         int y = 0;
         int rowCounter = 1;
@@ -32,7 +33,7 @@ public class State {
             if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 2 || colCounter == 1)) boxCounter = 3;
             if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 4 || colCounter == 3)) boxCounter = 4;
 
-            cells.add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
+            startState.getCells().add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
             //System.out.println("row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " + cells.get(i).getValue() + " ");
 
             if ((i+1) % 4 == 0 && i != 0) {
@@ -85,26 +86,22 @@ public class State {
         return result;
     }
 
-    public Boolean isLegal(State state, Cell cell, int newValue){
+    public List<Cell> getCells() {
+        return cells;
+    }
 
-        if(newValue < 1 || newValue > 4) return false;
+    public static List<Cell> prevStateCells(List<Cell> origList){
+        try {
+            List<Cell> clone = new ArrayList<>();
 
-        char[] ar1 = state.getValuesInBox(cell.getBox()).toCharArray();
-        for (char value : ar1){
-            if (Character.getNumericValue(value) == newValue) return false;
+            for (Cell cell : origList) {
+                clone.add((Cell) cell.clone());
+            }
+
+            return clone;
+        } catch (CloneNotSupportedException e){
+            throw new InternalError(e);
         }
-
-        char[] ar2 = state.getValuesInCol(cell.getCol()).toCharArray();
-        for (char value : ar2){
-            if (Character.getNumericValue(value) == (char) newValue) return false;
-        }
-
-        char[] ar3 = state.getValuesInRow(cell.getRow()).toCharArray();
-        for (char value : ar3){
-            if (Character.getNumericValue(value) == (char) newValue) return false;
-        }
-
-        return true;
     }
 
     public Boolean isFull(State state){
@@ -113,4 +110,5 @@ public class State {
         }
         return true;
     }
+
 }
