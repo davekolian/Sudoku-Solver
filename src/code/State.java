@@ -34,7 +34,7 @@ public class State {
             if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 4 || colCounter == 3)) boxCounter = 4;
 
             startState.getCells().add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
-            //System.out.println("row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " + cells.get(i).getValue() + " ");
+            //System.out.println("i: " + i + " row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " +  startState.getCells().get(i).getValue());
 
             if ((i+1) % 4 == 0 && i != 0) {
                 y = 0;
@@ -50,7 +50,7 @@ public class State {
     public String toString() {
         String result = "";
         int count = 1;
-        for(Cell cell : cells){
+        for(Cell cell : getCells()){
             result += cell.getValue() + " ";
             if (count % 4 == 0) result += " | ";
             count++;
@@ -60,7 +60,7 @@ public class State {
 
     public String getValuesInBox(int box){
         String result = "";
-        for(Cell cell : cells){
+        for(Cell cell : getCells()){
             if(cell.getBox() == box)
                 result += cell.getValue();
         }
@@ -70,7 +70,7 @@ public class State {
 
     public String getValuesInRow(int row){
         String result = "";
-        for (Cell cell: cells){
+        for (Cell cell: getCells()){
             if (cell.getRow() == row)
                 result += cell.getValue();
         }
@@ -104,8 +104,8 @@ public class State {
         }
     }
 
-    public Boolean isFull(State state){
-        for (Cell cell : state.cells){
+    public static Boolean isFull(State state){
+        for (Cell cell : state.getCells()){
             if (cell.getValue() == 0) return false;
         }
         return true;
