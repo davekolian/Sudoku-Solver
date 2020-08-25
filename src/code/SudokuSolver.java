@@ -18,16 +18,12 @@ public class SudokuSolver {
         ArrayList<Node> nodes = new ArrayList<>();
         int stateCounter = 0;
 
-        //System.out.println(states.get(0));
-        //System.out.println(states.get(0).getValuesInBox(4));
-        //function(states.get(0));
-
         boolean isBox = false;
         boolean isRow = false;
         boolean isCol = false;
         boolean isIndv = false;
-
         boolean cond = true;
+
         //long sTime = System.nanoTime();
         //long eTime = 0;
 
@@ -39,110 +35,214 @@ public class SudokuSolver {
         boolean oopsie = false;
         int svc = 0;
 
-        /*while(cond) {
-            int[] bCells = new int[4];
-            int j = 0;
+        if(nodes.get(0).getState().getCells().size() == 16) {
+            /*while(cond) {
+                int[] bCells = new int[4];
+                int j = 0;
 
 
-            List<Integer> singleValues = posValue(nodes.get(stateCounter).getState());
-            if(singleValues.size() != 0)
-                isIndv = true;
-            else{
-                isIndv = false;
-                isBox = true;
-            }
+                List<Integer> singleValues = posValue(nodes.get(stateCounter).getState());
+                if(singleValues.size() != 0)
+                    isIndv = true;
+                else{
+                    isIndv = false;
+                    isBox = true;
+                }
 
 
 
-            if (isBox && !isIndv){
-                bCells = posOfCellsBox(nodes.get(stateCounter).getState());
-                //System.out.println(bCells[0] + " " + bCells[1]  + " " +  bCells[2]  + " " +  bCells[3]);
-            } else if (isRow && !isIndv)
-                bCells = posOfCellsRow(nodes.get(stateCounter).getState());
-            else if (isCol && !isIndv)
-                bCells = posOfCellsCol(nodes.get(stateCounter).getState());
+                if (isBox && !isIndv){
+                    bCells = posOfCellsBox(nodes.get(stateCounter).getState());
+                    //System.out.println(bCells[0] + " " + bCells[1]  + " " +  bCells[2]  + " " +  bCells[3]);
+                } else if (isRow && !isIndv)
+                    bCells = posOfCellsRow(nodes.get(stateCounter).getState());
+                else if (isCol && !isIndv)
+                    bCells = posOfCellsCol(nodes.get(stateCounter).getState());
 
 
-            //System.out.println("box: " + findCrowdedBox(nodes.get(stateCounter).getState()));
-            if(!oopsie) {
-                for (int i = 0; i < 4; i++) {
-                    if(!isIndv) {
-                        if (nodes.get(stateCounter).getState().getCells().get(bCells[i]).getValue() == 0) {
-                            for (j = 1; j <= 4; j++) {
-                                //System.out.println(j+"i: " + i + " s: " + stateCounter + " p: "  + bCells[i] + " v: "  + nodes.get(stateCounter).getState().getCells().get(bCells[i]).getValue());
+                //System.out.println("box: " + findCrowdedBox(nodes.get(stateCounter).getState()));
+                if(!oopsie) {
+                    for (int i = 0; i < 4; i++) {
+                        if(!isIndv) {
+                            if (nodes.get(stateCounter).getState().getCells().get(bCells[i]).getValue() == 0) {
+                                for (j = 1; j <= 4; j++) {
+                                    //System.out.println(j+"i: " + i + " s: " + stateCounter + " p: "  + bCells[i] + " v: "  + nodes.get(stateCounter).getState().getCells().get(bCells[i]).getValue());
 
-                                if (isLegal(nodes.get(stateCounter).getState(), nodes.get(stateCounter).getState().getCells().get(bCells[i]), j)) {
-                                    //System.out.println("Putting " + j + " in " + bCells[i]);
-                                    stateCounter++;
+                                    if (isLegal(nodes.get(stateCounter).getState(), nodes.get(stateCounter).getState().getCells().get(bCells[i]), j)) {
+                                        //System.out.println("Putting " + j + " in " + bCells[i]);
+                                        stateCounter++;
 
-                                    List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
-                                    nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
-                                    nodes.get(stateCounter).getState().getCells().get(bCells[i]).setValue(j); //sets the value of the cell in the new node/state
-                                    System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
-                                    lastValue = j;
-                                    lastChangedCellPos = bCells[i];
-                                    cantAdd = 0;
-                                    break;
-                                } else if (cantAdd == 4) {
-                                    oopsie = true;
-                                    cantAdd = 0;
-                                    break;
-                                } else
-                                    cantAdd++;
+                                        List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
+                                        nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
+                                        nodes.get(stateCounter).getState().getCells().get(bCells[i]).setValue(j); //sets the value of the cell in the new node/state
+                                        System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
+                                        lastValue = j;
+                                        lastChangedCellPos = bCells[i];
+                                        cantAdd = 0;
+                                        break;
+                                    } else if (cantAdd == 4) {
+                                        oopsie = true;
+                                        cantAdd = 0;
+                                        break;
+                                    } else
+                                        cantAdd++;
+                                }
                             }
+                        } else {
+                            stateCounter++;
+                            List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
+                            if (nodes.get(stateCounter - 1) != null)
+                                nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
+                            else
+                                nodes.add(stateCounter, new Node(new State(newCellList), null)); //made new node, parent is prev node
+
+                            int pos;
+                            if(svc % 2 == 0)
+                                pos = svc;
+                            else
+                                pos = ++svc;
+
+                            int val = ++svc;
+
+                            if(singleValues.size() <= pos){
+                                svc = 0;
+                                break;
+                            }
+                            //System.out.println("pos: " + pos + " val: " + val);
+                            nodes.get(stateCounter).getState().getCells().get(singleValues.get(pos)).setValue(singleValues.get(val)); //sets the value of the cell in the new node/state
+                            System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
+
                         }
-                    } else {
-                        stateCounter++;
-                        List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
-                        if (nodes.get(stateCounter - 1) != null)
-                            nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
-                        else
-                            nodes.add(stateCounter, new Node(new State(newCellList), null)); //made new node, parent is prev node
-
-                        int pos;
-                        if(svc % 2 == 0)
-                            pos = svc;
-                        else
-                            pos = ++svc;
-
-                        int val = ++svc;
-
-                        if(singleValues.size() <= pos){
-                            svc = 0;
-                            break;
-                        }
-                        //System.out.println("pos: " + pos + " val: " + val);
-                        nodes.get(stateCounter).getState().getCells().get(singleValues.get(pos)).setValue(singleValues.get(val)); //sets the value of the cell in the new node/state
-                        System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
-
                     }
                 }
-            }
-            else {
-                //System.out.println("Made oopsie!");
-                System.out.println("Backtracking now!");
-                nodes.remove(stateCounter);
-                --stateCounter;
-                if(nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos).getValue() == 0) {
-                    if (isLegal(nodes.get(stateCounter).getState(), nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos), ++lastValue)) {
-                        stateCounter++;
+                else {
+                    //System.out.println("Made oopsie!");
+                    System.out.println("Backtracking now!");
+                    nodes.remove(stateCounter);
+                    --stateCounter;
+                    if(nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos).getValue() == 0) {
+                        if (isLegal(nodes.get(stateCounter).getState(), nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos), ++lastValue)) {
+                            stateCounter++;
 
-                        List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
-                        if (nodes.get(stateCounter - 1) != null)
-                            nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
-                        else
-                            nodes.add(stateCounter, new Node(new State(newCellList), null)); //made new node, parent is prev node
+                            List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
+                            if (nodes.get(stateCounter - 1) != null)
+                                nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
+                            else
+                                nodes.add(stateCounter, new Node(new State(newCellList), null)); //made new node, parent is prev node
 
-                        nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos).setValue(lastValue); //sets the value of the cell in the new node/state
-                        System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
-                        oopsie = false;
+                            nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos).setValue(lastValue); //sets the value of the cell in the new node/state
+                            System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
+                            oopsie = false;
+                        }
                     }
                 }
-            }
 
-            if(State.isFull(nodes.get(stateCounter).getState())) cond = false;
-        }*/
+                if(State.isFull(nodes.get(stateCounter).getState())) cond = false;
+            }*/
+        }
+        else if(nodes.get(0).getState().getCells().size() == 36) {
+            /*while (cond) {
+                int[] bCells = new int[6];
+                int j = 0;
 
+
+                List<Integer> singleValues = posValue(nodes.get(stateCounter).getState());
+                if (singleValues.size() != 0)
+                    isIndv = true;
+                else {
+                    isIndv = false;
+                    isBox = true;
+                }
+
+
+                if (isBox && !isIndv) {
+                    bCells = posOfCellsBox(nodes.get(stateCounter).getState());
+                    //System.out.println(bCells[0] + " " + bCells[1]  + " " +  bCells[2]  + " " +  bCells[3]);
+                } else if (isRow && !isIndv)
+                    bCells = posOfCellsRow(nodes.get(stateCounter).getState());
+                else if (isCol && !isIndv)
+                    bCells = posOfCellsCol(nodes.get(stateCounter).getState());
+
+
+                //System.out.println("box: " + findCrowdedBox(nodes.get(stateCounter).getState()));
+                if (!oopsie) {
+                    for (int i = 0; i < 6; i++) {
+                        if (!isIndv) {
+                            if (nodes.get(stateCounter).getState().getCells().get(bCells[i]).getValue() == 0) {
+                                for (j = 1; j <= 6; j++) {
+                                    //System.out.println(j+"i: " + i + " s: " + stateCounter + " p: "  + bCells[i] + " v: "  + nodes.get(stateCounter).getState().getCells().get(bCells[i]).getValue());
+
+                                    if (isLegal(nodes.get(stateCounter).getState(), nodes.get(stateCounter).getState().getCells().get(bCells[i]), j)) {
+                                        //System.out.println("Putting " + j + " in " + bCells[i]);
+                                        stateCounter++;
+
+                                        List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
+                                        nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
+                                        nodes.get(stateCounter).getState().getCells().get(bCells[i]).setValue(j); //sets the value of the cell in the new node/state
+                                        System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
+                                        lastValue = j;
+                                        lastChangedCellPos = bCells[i];
+                                        cantAdd = 0;
+                                        break;
+                                    } else if (cantAdd == 6) {
+                                        oopsie = true;
+                                        cantAdd = 0;
+                                        break;
+                                    } else
+                                        cantAdd++;
+                                }
+                            }
+                        } else {
+                            stateCounter++;
+                            List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
+                            if (nodes.get(stateCounter - 1) != null)
+                                nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
+                            else
+                                nodes.add(stateCounter, new Node(new State(newCellList), null)); //made new node, parent is prev node
+
+                            int pos;
+                            if (svc % 2 == 0)
+                                pos = svc;
+                            else
+                                pos = ++svc;
+
+                            int val = ++svc;
+
+                            if (singleValues.size() <= pos) {
+                                svc = 0;
+                                break;
+                            }
+                            //System.out.println("pos: " + pos + " val: " + val);
+                            nodes.get(stateCounter).getState().getCells().get(singleValues.get(pos)).setValue(singleValues.get(val)); //sets the value of the cell in the new node/state
+                            System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
+
+                        }
+                    }
+                } else {
+                    //System.out.println("Made oopsie!");
+                    System.out.println("Backtracking now!");
+                    nodes.remove(stateCounter);
+                    --stateCounter;
+                    if (nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos).getValue() == 0) {
+                        if (isLegal(nodes.get(stateCounter).getState(), nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos), ++lastValue)) {
+                            stateCounter++;
+
+                            List<Cell> newCellList = State.prevStateCells(nodes.get(stateCounter - 1).getState().getCells());
+                            if (nodes.get(stateCounter - 1) != null)
+                                nodes.add(stateCounter, new Node(new State(newCellList), nodes.get(stateCounter - 1))); //made new node, parent is prev node
+                            else
+                                nodes.add(stateCounter, new Node(new State(newCellList), null)); //made new node, parent is prev node
+
+                            nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos).setValue(lastValue); //sets the value of the cell in the new node/state
+                            System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
+                            oopsie = false;
+                        }
+                    }
+                }
+
+                if (State.isFull(nodes.get(stateCounter).getState())) cond = false;
+            }*/
+        }
         //long timeSpent = eTime - sTime;
         //System.out.println(timeSpent + " nano seconds!");
 
@@ -151,9 +251,9 @@ public class SudokuSolver {
 
     public int findCrowdedBox(State state){
         int box = 1;
-        int max = 4;
+        int max = 6;
 
-        for (int i = 1; i <= 4; i++){
+        for (int i = 1; i <= 6; i++){
             int numOfZeroes = 0;
 
             char[] values = state.getValuesInBox(i).toCharArray();
@@ -171,9 +271,9 @@ public class SudokuSolver {
 
     public int findCrowdedRow(State state){
         int row = 1;
-        int max = 4;
+        int max = 6;
 
-        for (int i = 1; i <= 4; i++){
+        for (int i = 1; i <= 6; i++){
             int numOfZeroes = 0;
 
             char[] values = state.getValuesInRow(i).toCharArray();
@@ -190,9 +290,9 @@ public class SudokuSolver {
 
     public int findCrowdedCol(State state){
         int col = 1;
-        int max = 4;
+        int max = 6;
 
-        for (int i = 1; i <= 4; i++){
+        for (int i = 1; i <= 6; i++){
             int numOfZeroes = 0;
 
             char[] values = state.getValuesInCol(i).toCharArray();
@@ -243,21 +343,29 @@ public class SudokuSolver {
                 c1 = 0;
                 break;
             case 2:
-                c1 = 2;
+                c1 = 3;
                 break;
             case 3:
-                c1 = 8;
+                c1 = 12;
                 break;
             case 4:
-                c1 = 10;
+                c1 = 15;
+                break;
+            case 5:
+                c1 = 24;
+                break;
+            case 6:
+                c1 = 27;
                 break;
         }
 
         int c2 = c1 + 1;
-        int c3 = c1 + 4;
-        int c4 = c2 + 4;
+        int c3 = c2 + 1;
+        int c4 = c1 + 6;
+        int c5 = c4 + 1;
+        int c6 = c5 + 1;
 
-        return new int[]{c1, c2, c3, c4};
+        return new int[]{c1, c2, c3, c4, c5, c6};
     }
 
     public int[] posOfCellsRow(State state){
@@ -268,21 +376,29 @@ public class SudokuSolver {
                 c1 = 0;
                 break;
             case 2:
-                c1 = 4;
+                c1 = 6;
                 break;
             case 3:
-                c1 = 8;
+                c1 = 12;
                 break;
             case 4:
-                c1 = 12;
+                c1 = 18;
+                break;
+            case 5:
+                c1 = 24;
+                break;
+            case 6:
+                c1 = 30;
                 break;
         }
 
         int c2 = c1 + 1;
         int c3 = c2 + 1;
         int c4 = c3 + 1;
+        int c5 = c4 + 1;
+        int c6 = c5 + 1;
 
-        return new int[]{c1, c2, c3, c4};
+        return new int[]{c1, c2, c3, c4, c5, c6};
     }
 
     public int[] posOfCellsCol(State state){
@@ -301,20 +417,32 @@ public class SudokuSolver {
             case 4:
                 c1 = 3;
                 break;
+            case 5:
+                c1 = 4;
+                break;
+            case 6:
+                c1 = 5;
+                break;
         }
 
-        int c2 = c1 + 4;
-        int c3 = c2 + 4;
-        int c4 = c3 + 4;
+        int c2 = c1 + 6;
+        int c3 = c2 + 6;
+        int c4 = c3 + 6;
+        int c5 = c4 + 6;
+        int c6 = c5 + 6;
 
-        return new int[]{c1, c2, c3, c4};
+        return new int[]{c1, c2, c3, c4, c5, c6};
     }
 
     //Can make the functions shorter if possible ^
 
     public Boolean isLegal(State state, Cell cell, int newValue){
 
-        if(newValue < 1 || newValue > 4) return false;
+        if(state.getCells().size() == 16){
+            if(newValue < 1 || newValue > 4) return false;
+        } else if (state.getCells().size() == 36)
+            if(newValue < 1 || newValue > 6) return false;
+
 
         char[] ar1 = state.getValuesInBox(cell.getBox()).toCharArray();
         for (char value : ar1){
