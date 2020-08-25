@@ -110,7 +110,7 @@ public class SudokuSolver {
                             svc = 0;
                             break;
                         }
-                        System.out.println("pos: " + pos + " val: " + val);
+                        //System.out.println("pos: " + pos + " val: " + val);
                         nodes.get(stateCounter).getState().getCells().get(singleValues.get(pos)).setValue(singleValues.get(val)); //sets the value of the cell in the new node/state
                         System.out.println("{" + stateCounter + "} " + nodes.get(stateCounter).getState());
 
@@ -119,6 +119,7 @@ public class SudokuSolver {
             }
             else {
                 //System.out.println("Made oopsie!");
+                System.out.println("Backtracking now!");
                 nodes.remove(stateCounter);
                 --stateCounter;
                 if(nodes.get(stateCounter).getState().getCells().get(lastChangedCellPos).getValue() == 0) {
@@ -376,9 +377,9 @@ public class SudokuSolver {
             }
             //System.out.println();
         }
-        for (int m : result){
+        /*for (int m : result){
             System.out.println(m);
-        }
+        }*/
 
         //System.out.println(pos);
         return result;

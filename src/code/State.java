@@ -17,9 +17,9 @@ public class State {
 
     public State start(){
         State startState = new State();
-        int[][] input = {{0, 3, 0, 0}, {0, 0, 0, 1}, {3, 0, 0, 0}, {0, 0, 2, 0}};
-        //int[][] input = {{0, 3, 0, 0}, {0, 0, 0, 1}, {3, 0, 0, 0}, {0, 0, 2, 0}};
-        //int[][] input = {{1, 2, 0, 0}, {0, 4, 0, 0}, {0, 0, 1, 0}, {0, 0, 3, 2}}; //problem with empty boxes
+        //int[][] input = {{0, 3, 0, 0}, {0, 0, 0, 1}, {3, 0, 0, 0}, {0, 0, 2, 0}}; //Main
+        //int[][] input = {{0, 3, 0, 0}, {0, 0, 0, 1}, {3, 0, 0, 0}, {0, 0, 2, 0}}; //Solved
+        int[][] input = {{0, 0, 0, 0}, {0, 0, 1, 0}, {4, 0, 0, 0}, {0, 2, 0, 3}}; //problem with empty boxes
         int x = 0;
         int y = 0;
         int rowCounter = 1;
