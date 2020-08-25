@@ -32,13 +32,14 @@ public class SudokuSolver {
         //long eTime = 0;
 
         nodes.add(stateCounter, new Node(new State().start(), null));
+        System.out.println(nodes.get(0).getState());
         int lastChangedCellPos = 0;
         int lastValue = 0;
         int cantAdd = 0;
         boolean oopsie = false;
         int svc = 0;
 
-        while(cond) {
+        /*while(cond) {
             int[] bCells = new int[4];
             int j = 0;
 
@@ -140,7 +141,7 @@ public class SudokuSolver {
             }
 
             if(State.isFull(nodes.get(stateCounter).getState())) cond = false;
-        }
+        }*/
 
         //long timeSpent = eTime - sTime;
         //System.out.println(timeSpent + " nano seconds!");
@@ -335,27 +336,55 @@ public class SudokuSolver {
     }
 
     public int[][] isPredict(State state){
-        int[][] result = new int[16][4];
+        int[][] result = new int[0][0];
         int[] temp;
+        if(state.getCells().size() == 16)
+            result = new int[16][4];
+        else if (state.getCells().size() == 36)
+            result = new int[36][6];
+
+
         int j = 0;
         int size = 0;
-        for (Cell cell : state.getCells()){
-            if(cell.getValue() == 0){
-                temp =  new int[4];
-                for(int i = 0; i < 4; i++){
-                    if(isLegal(state, cell, i+1)){
-                        //System.out.println(i+1);
-                        temp[size] = i+1;
-                        size++;
+        if(state.getCells().size() == 16) {
+            for (Cell cell : state.getCells()) {
+                if (cell.getValue() == 0) {
+                    temp = new int[4];
+                    for (int i = 0; i < 4; i++) {
+                        if (isLegal(state, cell, i + 1)) {
+                            //System.out.println(i+1);
+                            temp[size] = i + 1;
+                            size++;
+                        }
                     }
+                    //System.out.println();
+                    result[j] = temp;
+                    size = 0;
                 }
-                //System.out.println();
-                result[j] = temp;
-                size = 0;
+                j++;
+                temp = new int[0];
             }
-            j++;
-            temp = new int[0];
+        } else if(state.getCells().size() == 36) {
+            for (Cell cell : state.getCells()) {
+                if (cell.getValue() == 0) {
+                    temp = new int[6];
+                    for (int i = 0; i < 6; i++) {
+                        if (isLegal(state, cell, i + 1)) {
+                            //System.out.println(i+1);
+                            temp[size] = i + 1;
+                            size++;
+                        }
+                    }
+                    //System.out.println();
+                    result[j] = temp;
+                    size = 0;
+                }
+                j++;
+                temp = new int[0];
+            }
         }
+
+
         return result;
     }
 
@@ -365,23 +394,41 @@ public class SudokuSolver {
         int i = 0;
         int pos = 0;
         int value = 0;
-        for(int k = 0; k < 16; k++){
-            //System.out.println(k);
-            for(int l = 0; l < test[k].length; l++){
-                //if(test[k][l] != 0) System.out.print(" " + test[k][l]);
-                if(test[k][1] == 0 && test[k][0] != 0) {
-                    result.add(k);
-                    result.add(test[k][l]);
-                    break;
+        if(state.getCells().size() == 16) {
+            for (int k = 0; k < 16; k++) {
+                //System.out.println(k);
+                for (int l = 0; l < test[k].length; l++) {
+                    //if(test[k][l] != 0) System.out.print(" " + test[k][l]);
+                    if (test[k][1] == 0 && test[k][0] != 0) {
+                        result.add(k);
+                        result.add(test[k][l]);
+                        break;
+                    }
                 }
+                //System.out.println();
             }
-            //System.out.println();
-        }
         /*for (int m : result){
             System.out.println(m);
         }*/
+        } else if (state.getCells().size() == 36){
+            for (int k = 0; k < 36; k++) {
+                //System.out.println(k);
+                for (int l = 0; l < test[k].length; l++) {
+                    //if(test[k][l] != 0) System.out.print(" " + test[k][l]);
+                    if (test[k][1] == 0 && test[k][0] != 0) {
+                        result.add(k);
+                        result.add(test[k][l]);
+                        break;
+                    }
+                }
+                //System.out.println();
+            }
+        /*for (int m : result){
+            System.out.println(m);
+        }*/
+        }
 
-        //System.out.println(pos);
+
         return result;
 
     }
