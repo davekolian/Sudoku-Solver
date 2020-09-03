@@ -3,19 +3,19 @@ package code;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.lang.System.exit;
+
 
 public class SudokuSolver {
 
     public static void main(String[] args) {
         ArrayList<Node> nodes = new ArrayList<>();
         nodes.add(new Node(new State().start(), null));
+
         System.out.println("Starting State: ");
         System.out.println(nodes.get(0).getState());
 
-        System.out.println("Answer State: ");
         moreSolutions(nodes.get(0), nodes);
-
-        System.out.println("Size of nodes list: " + nodes.size());
     }
 
     public static Boolean isLegal(State state, Cell cell, int newValue) {
@@ -67,8 +67,10 @@ public class SudokuSolver {
                         listOfNodes.add(childNode);
                         //System.out.println(childNode.getState());
                         if (State.isFull(childNode.getState())) {
+                            System.out.println("Answer State: ");
                             System.out.println(childNode.getState());
-                            return 0;
+                            System.out.println("Size of nodes list: " + listOfNodes.size());
+                            exit(0);
                         }
                         found = moreSolutions(childNode, listOfNodes); //call the function again to see if it has more childNodes
                     } else if (cantAdd == 9) {
