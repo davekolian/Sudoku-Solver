@@ -1,8 +1,7 @@
 package code;
 
-import java.util.List;
+public class Cell implements Cloneable {
 
-public class Cell implements Cloneable{
     private int pos;
     private int row;
     private int col;
