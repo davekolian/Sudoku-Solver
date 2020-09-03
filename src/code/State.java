@@ -19,7 +19,7 @@ public class State {
     }
 
 
-    public State start(){
+    public State start() {
         State startState = new State();
         /*int[][] input = {{0, 0, 0, 0, 0, 0, 0, 0, 0}, //Default empty boxes
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -30,15 +30,15 @@ public class State {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}};*/
-        int[][] input = {{0, 0, 8, 0, 9, 0, 4, 0, 0},
-                         {3, 0, 2, 7, 6, 0, 0, 0, 0},
-                         {1, 0, 0, 0, 2, 0, 0, 0, 8},
-                         {6, 0, 0, 0, 0, 0, 0, 2, 0},
-                         {0, 0, 0, 0, 1, 0, 0, 0, 0},
-                         {2, 0, 0, 8, 0, 3, 0, 0, 0},
-                         {0, 0, 0, 5, 0, 0, 8, 0, 7},
-                         {0, 0, 0, 6, 0, 0, 0, 0, 4},
-                         {0, 7, 0, 0, 8, 9, 0, 0, 5}};
+        int[][] input = {{0, 0, 0, 0, 0, 0, 0, 0, 0}, //Default empty boxes
+                         {0, 1, 2, 0, 3, 4, 5, 6, 7},
+                         {0, 3, 4, 5, 0, 6, 1, 8, 2},
+                         {0, 0, 1, 0, 5, 8, 2, 0, 6},
+                         {0, 0, 8, 6, 0, 0, 0, 0, 1},
+                         {0, 2, 0, 0, 0, 7, 0, 5, 0},
+                         {0, 0, 3, 7, 0, 5, 0, 2, 8},
+                         {0, 8, 0, 0, 6, 0, 7, 0, 0},
+                         {2, 0, 7, 0, 8, 3, 6, 1, 5}};
         /*int[][] input = {{0, 0, 7, 6, 8, 0, 0, 0, 1}, //Example of an easy puzzle
                 {0, 0, 0, 0, 3, 0, 8, 0, 5},
                 {5, 8, 0, 2, 0, 9, 0, 6, 0},
@@ -73,28 +73,27 @@ public class State {
         int colCounter = 1;
         int boxCounter = 1;
 
-        if(lengthOfCells == 16) {
-            for(int i = 0; i < 16; i++) {
-            if (i % 4 == 0 && i != 0) rowCounter++;
-            if (i % 4 == 0) colCounter = 1;
-            else colCounter++;
-            if ((rowCounter == 2 || rowCounter == 1) && (colCounter == 2 || colCounter == 1)) boxCounter = 1;
-            if ((rowCounter == 2 || rowCounter == 1) && (colCounter == 4 || colCounter == 3)) boxCounter = 2;
-            if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 2 || colCounter == 1)) boxCounter = 3;
-            if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 4 || colCounter == 3)) boxCounter = 4;
+        if (lengthOfCells == 16) {
+            for (int i = 0; i < 16; i++) {
+                if (i % 4 == 0 && i != 0) rowCounter++;
+                if (i % 4 == 0) colCounter = 1;
+                else colCounter++;
+                if ((rowCounter == 2 || rowCounter == 1) && (colCounter == 2 || colCounter == 1)) boxCounter = 1;
+                if ((rowCounter == 2 || rowCounter == 1) && (colCounter == 4 || colCounter == 3)) boxCounter = 2;
+                if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 2 || colCounter == 1)) boxCounter = 3;
+                if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 4 || colCounter == 3)) boxCounter = 4;
 
-            startState.getCells().add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
-            //System.out.println("i: " + i + " row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " +  startState.getCells().get(i).getValue());
+                startState.getCells().add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
+                //System.out.println("i: " + i + " row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " +  startState.getCells().get(i).getValue());
 
-            if ((i+1) % 4 == 0 && i != 0) {
-                y = 0;
-                x++;
+                if ((i + 1) % 4 == 0 && i != 0) {
+                    y = 0;
+                    x++;
+                } else y++;
+
             }
-            else y++;
-
-        }
-        } else if(lengthOfCells == 36){
-            for(int i = 0; i < lengthOfCells; i++) {
+        } else if (lengthOfCells == 36) {
+            for (int i = 0; i < lengthOfCells; i++) {
                 if (i % 6 == 0 && i != 0) rowCounter++;
                 if (i % 6 == 0)
                     colCounter = 1;
@@ -111,15 +110,14 @@ public class State {
                 startState.getCells().add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
                 //System.out.println("i: " + i + " row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " +  startState.getCells().get(i).getValue());
 
-                if ((i+1) % 6 == 0 && i != 0) {
+                if ((i + 1) % 6 == 0 && i != 0) {
                     y = 0;
                     x++;
-                }
-                else y++;
+                } else y++;
 
             }
-        } else if(lengthOfCells == 81){
-            for(int i = 0; i < lengthOfCells; i++) {
+        } else if (lengthOfCells == 81) {
+            for (int i = 0; i < lengthOfCells; i++) {
                 if (i % 9 == 0 && i != 0) rowCounter++;
                 if (i % 9 == 0)
                     colCounter = 1;
@@ -137,13 +135,13 @@ public class State {
                 if ((rowCounter >= 7 && rowCounter <= 9) && (colCounter >= 7 && colCounter <= 9)) boxCounter = 9;
 
                 startState.getCells().add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
+                startState.getCells().get(i).setPredictAmt(-1);
                 //System.out.println("i: " + i + " row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " +  startState.getCells().get(i).getValue());
 
-                if ((i+1) % 9 == 0 && i != 0) {
+                if ((i + 1) % 9 == 0 && i != 0) {
                     y = 0;
                     x++;
-                }
-                else y++;
+                } else y++;
 
             }
         }
@@ -156,13 +154,13 @@ public class State {
     public String toString() {
         String result = "";
         int count = 1;
-        if(getCells().size() == 16) {
+        if (getCells().size() == 16) {
             for (Cell cell : getCells()) {
                 result += cell.getValue() + " ";
                 if (count % 4 == 0) result += " | ";
                 count++;
             }
-        } else if (getCells().size() == 36){
+        } else if (getCells().size() == 36) {
             for (Cell cell : getCells()) {
                 result += cell.getValue() + " ";
                 if (count % 3 == 0) result += " | ";
@@ -170,7 +168,7 @@ public class State {
                 if (count % 12 == 0 && count != 0) result += "----------------\n";
                 count++;
             }
-        } else if (getCells().size() == 81){
+        } else if (getCells().size() == 81) {
             for (Cell cell : getCells()) {
                 result += cell.getValue() + " ";
                 if (count % 3 == 0) result += " | ";
@@ -182,35 +180,35 @@ public class State {
         return result;
     }
 
-    public String getValuesInBox(int box){
+    public String getValuesInBox(int box) {
         String result = "";
-        for(Cell cell : getCells()){
-            if(cell.getBox() == box)
+        for (Cell cell : getCells()) {
+            if (cell.getBox() == box)
                 result += cell.getValue();
         }
 
         return result;
     }
 
-    public String getValuesInRow(int row){
+    public String getValuesInRow(int row) {
         String result = "";
-        for (Cell cell: getCells()){
+        for (Cell cell : getCells()) {
             if (cell.getRow() == row)
                 result += cell.getValue();
         }
         return result;
     }
 
-    public String getValuesInCol(int col){
+    public String getValuesInCol(int col) {
         String result = "";
-        for (Cell cell: cells){
+        for (Cell cell : cells) {
             if (cell.getCol() == col)
                 result += cell.getValue();
         }
         return result;
     }
 
-    public static List<Cell> prevStateCells(List<Cell> origList){
+    public static List<Cell> prevStateCells(List<Cell> origList) {
         try {
             List<Cell> clone = new ArrayList<>();
 
@@ -219,13 +217,13 @@ public class State {
             }
 
             return clone;
-        } catch (CloneNotSupportedException e){
+        } catch (CloneNotSupportedException e) {
             throw new InternalError(e);
         }
     }
 
-    public static Boolean isFull(State state){
-        for (Cell cell : state.getCells()){
+    public static Boolean isFull(State state) {
+        for (Cell cell : state.getCells()) {
             if (cell.getValue() == 0) return false;
         }
         return true;
