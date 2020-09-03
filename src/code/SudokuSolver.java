@@ -14,9 +14,9 @@ public class SudokuSolver {
         System.out.println("Starting State: ");
         System.out.println(nodes.get(0).getState());
 
-        int answer =  moreSolutions(nodes.get(0), nodes);
+        int answer = moreSolutions(nodes.get(0), nodes);
 
-        if(answer == -1)
+        if (answer == -1)
             System.out.println("No unique answer!");
 
     }
@@ -58,9 +58,9 @@ public class SudokuSolver {
         int found = 0;
         int digits = 0;
 
-        if(parent.getState().getCells().size() == 16) digits = 4;
-        else if(parent.getState().getCells().size() == 36) digits = 6;
-        else if(parent.getState().getCells().size() == 81) digits = 9;
+        if (parent.getState().getCells().size() == 16) digits = 4;
+        else if (parent.getState().getCells().size() == 36) digits = 6;
+        else if (parent.getState().getCells().size() == 81) digits = 9;
 
         for (Cell cell : parent.getState().getCells()) {
             if (cell.getValue() == 0) {
@@ -88,9 +88,7 @@ public class SudokuSolver {
                 }
             }
         }
+
         return found;
-
-
     }
-
 }
