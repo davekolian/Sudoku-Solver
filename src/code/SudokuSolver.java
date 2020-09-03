@@ -5,7 +5,6 @@ import java.util.List;
 
 import static java.lang.System.exit;
 
-
 public class SudokuSolver {
 
     public static void main(String[] args) {
@@ -15,7 +14,11 @@ public class SudokuSolver {
         System.out.println("Starting State: ");
         System.out.println(nodes.get(0).getState());
 
-        moreSolutions(nodes.get(0), nodes);
+        int answer =  moreSolutions(nodes.get(0), nodes);
+
+        if(answer == -1)
+            System.out.println("No unique answer!");
+
     }
 
     public static Boolean isLegal(State state, Cell cell, int newValue) {
@@ -30,7 +33,6 @@ public class SudokuSolver {
             if (newValue < 1 || newValue > 9)
                 return false;
         }
-
 
         char[] ar1 = state.getValuesInBox(cell.getBox()).toCharArray();
         for (char value : ar1) {
@@ -54,12 +56,17 @@ public class SudokuSolver {
     public static int moreSolutions(Node parent, List<Node> listOfNodes) {
         int cantAdd = 0;
         int found = 0;
+        int digits = 0;
+
+        if(parent.getState().getCells().size() == 16) digits = 4;
+        else if(parent.getState().getCells().size() == 36) digits = 6;
+        else if(parent.getState().getCells().size() == 81) digits = 9;
 
         for (Cell cell : parent.getState().getCells()) {
             if (cell.getValue() == 0) {
                 if (found == -1)
                     return -1; //breaks the recursive function if solution is found
-                for (int i = 1; i <= 9; i++) {
+                for (int i = 1; i <= digits; i++) {
                     if (isLegal(parent.getState(), cell, i)) {
                         List<Cell> newList = State.prevStateCells(parent.getState().getCells());
                         Node childNode = new Node(new State(newList), parent);
@@ -73,7 +80,7 @@ public class SudokuSolver {
                             exit(0);
                         }
                         found = moreSolutions(childNode, listOfNodes); //call the function again to see if it has more childNodes
-                    } else if (cantAdd == 9) {
+                    } else if (cantAdd == digits) {
                         return -1;
                     } else {
                         cantAdd++;
@@ -82,6 +89,8 @@ public class SudokuSolver {
             }
         }
         return found;
+
+
     }
 
 }

@@ -18,7 +18,6 @@ public class State {
         return cells;
     }
 
-
     public State start() {
         State startState = new State();
         /*int[][] input = {{0, 0, 0, 0, 0, 0, 0, 0, 0}, //Default empty boxes
@@ -30,6 +29,7 @@ public class State {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}};*/
+
         int[][] input = {{8, 0, 0, 0, 0, 0, 0, 0, 0}, //Hardest puzzle ever
                          {0, 0, 3, 6, 0, 0, 0, 0, 0},
                          {0, 7, 0, 0, 9, 0, 2, 0, 0},
@@ -39,7 +39,7 @@ public class State {
                          {0, 0, 1, 0, 0, 0, 0, 6, 8},
                          {0, 0, 8, 5, 0, 0, 0, 1, 0},
                          {0, 9, 0, 0, 0, 0, 4, 0, 0}};
-        /*        int[][] input = {{3, 7, 0, 0, 0, 1, 0, 0, 0}, //Expert puzzle
+        /*int[][] input = {{3, 7, 0, 0, 0, 1, 0, 0, 0}, //Example of Expert puzzle
                                  {0, 0, 0, 9, 0, 2, 0, 0, 0},
                                  {0, 0, 0, 0, 0, 6, 5, 1, 0},
                                  {0, 0, 2, 0, 0, 0, 6, 4, 0},
@@ -57,15 +57,6 @@ public class State {
                 {0, 0, 3, 7, 0, 5, 0, 2, 8},
                 {0, 8, 0, 0, 6, 0, 7, 0, 0},
                 {2, 0, 7, 0, 8, 3, 6, 1, 5}};*/
-        /*int[][] input = {{0, 0, 7, 6, 8, 0, 0, 0, 1}, //Example of an easy puzzle
-                {0, 0, 0, 0, 3, 0, 8, 0, 5},
-                {5, 8, 0, 2, 0, 9, 0, 6, 0},
-                {9, 3, 0, 0, 6, 0, 0, 2, 4},
-                {6, 0, 8, 0, 4, 0, 5, 0, 9},
-                {0, 0, 0, 1, 9, 0, 0, 8, 6},
-                {3, 5, 4, 0, 2, 6, 0, 0, 0},
-                {0, 0, 9, 0, 0, 0, 6, 0, 0},
-                {0, 6, 2, 0, 5, 1, 0, 4, 0}};*/
         /*int[][] input = {{1, 0, 0, 7, 0, 8, 9, 0, 0}, //Example of medium puzzle
                 {6, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 8, 6, 0, 1, 0, 7, 4},
@@ -75,15 +66,21 @@ public class State {
                 {0, 0, 2, 8, 9, 0, 0, 0, 1},
                 {3, 8, 0, 5, 2, 0, 0, 0, 0},
                 {0, 0, 0, 0, 6, 3, 0, 0, 0}};*/
-        /*int[][] input = {{0, 0, 7, 6, 8, 0, 0, 0, 1},
+        /*int[][] input = {{0, 0, 7, 6, 8, 0, 0, 0, 1}, //Example of an easy puzzle
                 {0, 0, 0, 0, 3, 0, 8, 0, 5},
-                {5, 8, 0, 2, 0, 9, 1, 6, 2},
-                {0, 0, 1, 0, 5, 8, 2, 0, 6},
-                {0, 0, 8, 6, 0, 0, 0, 0, 1},
-                {0, 2, 0, 0, 0, 7, 0, 5, 0},
-                {0, 0, 3, 7, 0, 5, 0, 2, 8},
-                {0, 8, 0, 0, 6, 0, 7, 0, 0},
-                {2, 0, 7, 0, 8, 3, 6, 1, 5}};*/
+                {5, 8, 0, 2, 0, 9, 0, 6, 0},
+                {9, 3, 0, 0, 6, 0, 0, 2, 4},
+                {6, 0, 8, 0, 4, 0, 5, 0, 9},
+                {0, 0, 0, 1, 9, 0, 0, 8, 6},
+                {3, 5, 4, 0, 2, 6, 0, 0, 0},
+                {0, 0, 9, 0, 0, 0, 6, 0, 0},
+                {0, 6, 2, 0, 5, 1, 0, 4, 0}};*/
+
+        /*int[][] input = {{0, 0, 0, 3}, //Example of a 2x2 puzzle
+                         {0, 0, 0, 2},
+                         {3, 0, 0, 0},
+                         {4, 0, 0, 0}};*/
+        //make a check to see if the puzzle is right
         int lengthOfCells = input[0].length * input.length;
         int x = 0;
         int y = 0;
@@ -153,7 +150,6 @@ public class State {
                 if ((rowCounter >= 7 && rowCounter <= 9) && (colCounter >= 7 && colCounter <= 9)) boxCounter = 9;
 
                 startState.getCells().add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
-                startState.getCells().get(i).setPredictAmt(-1);
                 //System.out.println("i: " + i + " row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " +  startState.getCells().get(i).getValue());
 
                 if ((i + 1) % 9 == 0 && i != 0) {
@@ -175,7 +171,9 @@ public class State {
         if (getCells().size() == 16) {
             for (Cell cell : getCells()) {
                 result += cell.getValue() + " ";
-                if (count % 4 == 0) result += " | ";
+                if (count % 2 == 0) result += "| ";
+                if (count % 4 == 0) result += "\n";
+                if (count % 8 == 0) result += "-------------\n";
                 count++;
             }
         } else if (getCells().size() == 36) {
@@ -191,7 +189,7 @@ public class State {
                 result += cell.getValue() + " ";
                 if (count % 3 == 0) result += " | ";
                 if (count % 9 == 0 && count != 0) result += "\n";
-                if (count % 27 == 0 && count != 0) result += "----------------\n";
+                if (count % 27 == 0 && count != 0) result += "--------------------------\n";
                 count++;
             }
         }
