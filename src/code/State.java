@@ -18,6 +18,7 @@ public class State {
         return cells;
     }
 
+    //Function which returns the start state
     public State start() {
         State startState = new State();
         /*int[][] input = {{0, 0, 0, 0, 0, 0, 0, 0, 0}, //Default empty boxes
@@ -30,7 +31,7 @@ public class State {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}};*/
 
-        int[][] input = {{8, 0, 0, 0, 0, 0, 0, 0, 0}, //Hardest puzzle ever
+/*        int[][] input = {{8, 0, 0, 0, 0, 0, 0, 0, 0}, //Hardest puzzle ever
                          {0, 0, 3, 6, 0, 0, 0, 0, 0},
                          {0, 7, 0, 0, 9, 0, 2, 0, 0},
                          {0, 5, 0, 0, 0, 7, 0, 0, 0},
@@ -38,7 +39,7 @@ public class State {
                          {0, 0, 0, 1, 0, 0, 0, 3, 0},
                          {0, 0, 1, 0, 0, 0, 0, 6, 8},
                          {0, 0, 8, 5, 0, 0, 0, 1, 0},
-                         {0, 9, 0, 0, 0, 0, 4, 0, 0}};
+                         {0, 9, 0, 0, 0, 0, 4, 0, 0}};*/
         /*int[][] input = {{3, 7, 0, 0, 0, 1, 0, 0, 0}, //Example of Expert puzzle
                                  {0, 0, 0, 9, 0, 2, 0, 0, 0},
                                  {0, 0, 0, 0, 0, 6, 5, 1, 0},
@@ -66,7 +67,7 @@ public class State {
                 {0, 0, 2, 8, 9, 0, 0, 0, 1},
                 {3, 8, 0, 5, 2, 0, 0, 0, 0},
                 {0, 0, 0, 0, 6, 3, 0, 0, 0}};*/
-        /*int[][] input = {{0, 0, 7, 6, 8, 0, 0, 0, 1}, //Example of an easy puzzle
+        int[][] input = {{0, 0, 7, 6, 8, 0, 0, 0, 1}, //Example of an easy puzzle
                 {0, 0, 0, 0, 3, 0, 8, 0, 5},
                 {5, 8, 0, 2, 0, 9, 0, 6, 0},
                 {9, 3, 0, 0, 6, 0, 0, 2, 4},
@@ -74,7 +75,7 @@ public class State {
                 {0, 0, 0, 1, 9, 0, 0, 8, 6},
                 {3, 5, 4, 0, 2, 6, 0, 0, 0},
                 {0, 0, 9, 0, 0, 0, 6, 0, 0},
-                {0, 6, 2, 0, 5, 1, 0, 4, 0}};*/
+                {0, 6, 2, 0, 5, 1, 0, 4, 0}};
 
         /*int[][] input = {{0, 0, 0, 3}, //Example of a 2x2 puzzle
                          {0, 0, 0, 2},
@@ -93,10 +94,10 @@ public class State {
                 if (i % 4 == 0 && i != 0) rowCounter++;
                 if (i % 4 == 0) colCounter = 1;
                 else colCounter++;
-                if ((rowCounter == 2 || rowCounter == 1) && (colCounter == 2 || colCounter == 1)) boxCounter = 1;
-                if ((rowCounter == 2 || rowCounter == 1) && (colCounter == 4 || colCounter == 3)) boxCounter = 2;
-                if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 2 || colCounter == 1)) boxCounter = 3;
-                if ((rowCounter == 4 || rowCounter == 3) && (colCounter == 4 || colCounter == 3)) boxCounter = 4;
+                if ((rowCounter == 1 || rowCounter == 2) && (colCounter == 1 || colCounter == 2)) boxCounter = 1;
+                if ((rowCounter == 1 || rowCounter == 2) && (colCounter == 3 || colCounter == 4)) boxCounter = 2;
+                if ((rowCounter == 3 || rowCounter == 4) && (colCounter == 1 || colCounter == 2)) boxCounter = 3;
+                if ((rowCounter == 3 || rowCounter == 4) && (colCounter == 3 || colCounter == 4)) boxCounter = 4;
 
                 startState.getCells().add(new Cell(i, rowCounter, colCounter, boxCounter, input[x][y]));
                 //System.out.println("i: " + i + " row: " + rowCounter + " col: " + colCounter + " box: " + boxCounter + " value: " +  startState.getCells().get(i).getValue());
@@ -115,10 +116,10 @@ public class State {
                 else
                     colCounter++;
 
-                if ((rowCounter == 2 || rowCounter == 1) && (colCounter >= 1 && colCounter <= 3)) boxCounter = 1;
-                if ((rowCounter == 2 || rowCounter == 1) && (colCounter >= 4 && colCounter <= 6)) boxCounter = 2;
-                if ((rowCounter == 4 || rowCounter == 3) && (colCounter >= 1 && colCounter <= 3)) boxCounter = 3;
-                if ((rowCounter == 4 || rowCounter == 3) && (colCounter >= 4 && colCounter <= 6)) boxCounter = 4;
+                if ((rowCounter == 1 || rowCounter == 2) && (colCounter >= 1 && colCounter <= 3)) boxCounter = 1;
+                if ((rowCounter == 1 || rowCounter == 2) && (colCounter >= 4 && colCounter <= 6)) boxCounter = 2;
+                if ((rowCounter == 3 || rowCounter == 4) && (colCounter >= 1 && colCounter <= 3)) boxCounter = 3;
+                if ((rowCounter == 3 || rowCounter == 4) && (colCounter >= 4 && colCounter <= 6)) boxCounter = 4;
                 if ((rowCounter == 5 || rowCounter == 6) && (colCounter >= 1 && colCounter <= 3)) boxCounter = 5;
                 if ((rowCounter == 5 || rowCounter == 6) && (colCounter >= 4 && colCounter <= 6)) boxCounter = 6;
 
@@ -160,7 +161,6 @@ public class State {
             }
         }
 
-
         return startState;
     }
 
@@ -196,6 +196,7 @@ public class State {
         return result;
     }
 
+    //Function to get all the values in a box
     public String getValuesInBox(int box) {
         String result = "";
         for (Cell cell : getCells()) {
@@ -206,6 +207,7 @@ public class State {
         return result;
     }
 
+    //Function to get all the values in a row
     public String getValuesInRow(int row) {
         String result = "";
         for (Cell cell : getCells()) {
@@ -215,6 +217,7 @@ public class State {
         return result;
     }
 
+    //Function to get all the values in a column
     public String getValuesInCol(int col) {
         String result = "";
         for (Cell cell : cells) {
@@ -224,6 +227,7 @@ public class State {
         return result;
     }
 
+    //Function used to make a deep copy of the previous list of cells from the old state to the new state
     public static List<Cell> prevStateCells(List<Cell> origList) {
         try {
             List<Cell> clone = new ArrayList<>();
@@ -233,15 +237,10 @@ public class State {
             }
 
             return clone;
+
         } catch (CloneNotSupportedException e) {
             throw new InternalError(e);
         }
     }
 
-    public static Boolean isFull(State state) {
-        for (Cell cell : state.getCells()) {
-            if (cell.getValue() == 0) return false;
-        }
-        return true;
-    }
 }
