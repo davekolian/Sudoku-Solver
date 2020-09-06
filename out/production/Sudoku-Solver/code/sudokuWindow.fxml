@@ -31,42 +31,42 @@
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u21" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u20" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u19" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u3" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -85,47 +85,47 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
+                  <TextField fx:id="u4" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u24" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u23" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u22" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u15" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u14" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u13" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u5" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -144,47 +144,47 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
+                  <TextField fx:id="u7" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u27" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u26" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u25" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u18" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u17" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u16" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u9" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u8" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -203,47 +203,47 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
+                  <TextField fx:id="u28" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u48" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u47" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u46" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u39" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u38" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u37" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u30" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u29" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -262,47 +262,47 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
+                  <TextField fx:id="u31" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u51" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u50" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u49" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u42" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u41" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u40" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u33" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u32" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -321,47 +321,47 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
+                  <TextField fx:id="u34" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u54" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u53" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u52" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u45" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u44" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u43" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u36" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u35" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -380,47 +380,47 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
+                  <TextField fx:id="u55" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u75" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u74" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u73" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u66" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u65" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u64" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u57" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u56" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -439,47 +439,47 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
+                  <TextField fx:id="u58" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u78" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u77" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u76" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u69" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u68" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u67" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u60" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u59" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -498,47 +498,47 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                </rowConstraints>
                <children>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
+                  <TextField fx:id="u61" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <TextField fx:id="u81" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                  <TextField fx:id="u80" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
+                  <TextField fx:id="u79" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                  <TextField fx:id="u72" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                  <TextField fx:id="u71" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
+                  <TextField fx:id="u70" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
+                  <TextField fx:id="u63" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="2">
                      <font>
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
+                  <TextField fx:id="u62" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" text="8" GridPane.columnIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
