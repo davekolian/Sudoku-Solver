@@ -292,7 +292,7 @@ public class WindowController implements Initializable {
     @FXML
     TextField u81;
 
-    ArrayList<TextField> listOfCells = new ArrayList<>();
+    static ArrayList<TextField> listOfCells = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -410,9 +410,45 @@ public class WindowController implements Initializable {
     }
 
     @FXML
-    private void solvePuzzle() {
+    private void solvePuzzle(Event event) {
+        int[][] puzzle = new int[9][9];
+        int rowC = 0;
+        int colC = 0;
+        for (TextField tf : listOfCells) {
+            if (!tf.getText().equals("")) {
+                puzzle[colC][rowC] = Integer.parseInt(tf.getText());
+                tf.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
+            } else {
+                puzzle[colC][rowC] = 0;
+                tf.setStyle("-fx-text-inner-color: #0000FF; -fx-display-caret: false");
+            }
+            if (rowC % 8 == 0 && rowC != 0) {
+                colC++;
+                rowC = 0;
+            } else
+                rowC++;
+        }
+
+        State start = new State().start(puzzle);
+        int answer = SudokuSolver.function(start);
+
+        if (answer == 1)
+            System.out.println("yay");
+        else if (answer == -1) {
+            System.out.println("boo");
+        }
 
     }
+
+    public static void fillPuzzle(State state) {
+        int cellCounter = 0;
+
+        for (TextField textField : listOfCells) {
+            textField.setText(String.valueOf(state.getCells().get(cellCounter).getValue()));
+            //textField.setDisable(true);
+            cellCounter++;
+        }
+            }
 
     @FXML
     private void clearPuzzle() {
@@ -437,11 +473,14 @@ public class WindowController implements Initializable {
         int[] colArray = {10, 19, 28, 37, 46, 55, 64, 73};
 
         for (Integer i : rowArray) {
-            if (listOfCells.get(i - 1).getText().equals(textField.getText()) && !textField.getText().equals("") && !listOfCells.get(i - 1).getText().equals("")) {
+            if (textField.getText().equals(listOfCells.get(i - 1).getText())) {
+                System.out.println(listOfCells.get(i - 1).getText());
+                System.out.println(textField.getText());
                 System.out.println("hii");
-                textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
-                textField.setDisable(true);
-                popUpMethod();
+                //textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
+                //textField.setDisable(true);
+                //popUpMethod();
+
             }
         }
     }

@@ -8,17 +8,23 @@ import static java.lang.System.exit;
 public class SudokuSolver {
 
     public static void main(String[] args) {
+
+        //nodes.add(new Node(new State().start(), null)); //Creates parent node from the details in State Class
+
+
+    }
+
+    public static int function(State state) {
         ArrayList<Node> nodes = new ArrayList<>(); //List of all nodes
-        nodes.add(new Node(new State().start(), null)); //Creates parent node from the details in State Class
+
+        nodes.add(new Node(state, null));
 
         System.out.println("Starting State: ");
         System.out.println(nodes.get(0).getState());
 
         int answer = moreSolutions(nodes.get(0), nodes);
 
-        if (answer == -1)
-            System.out.println("No unique answer!");
-
+        return answer;
     }
 
     //Function which checks if an operation is allowed
@@ -82,9 +88,12 @@ public class SudokuSolver {
                             System.out.println("Answer State: ");
                             System.out.println(childNode.getState());
                             System.out.println("Size of nodes list: " + listOfNodes.size());
-                            exit(0); //Exit the program, done cause backtracking thousands of nodes back is memory hungry
+                            //exit(0); //Exit the program, done cause backtracking thousands of nodes back is memory hungry
+                            WindowController.fillPuzzle(childNode.getState());
+                            return 1;
                         }
                         found = moreSolutions(childNode, listOfNodes); //call the function again to see if it has more childNodes
+                        if(found == 1) return 1;
                     } else if (cantAdd == digits) {
                         return -1; //returns to the prev node if it cannot find more childNodes and continue checking if there are other possible nodes with the parentNode
                     } else {

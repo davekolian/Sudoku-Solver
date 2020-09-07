@@ -19,7 +19,7 @@ public class State {
     }
 
     //Function which returns the start state
-    public State start() {
+    public State start(int[][] input) {
         State startState = new State();
         /*int[][] input = {{0, 0, 0, 0, 0, 0, 0, 0, 0}, //Default empty boxes
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
@@ -31,7 +31,7 @@ public class State {
                 {0, 0, 0, 0, 0, 0, 0, 0, 0},
                 {0, 0, 0, 0, 0, 0, 0, 0, 0}};*/
 
-        int[][] input = {{8, 0, 0, 0, 0, 0, 0, 0, 0}, //Hardest puzzle ever
+        /*int[][] input = {{8, 0, 0, 0, 0, 0, 0, 0, 0}, //Hardest puzzle ever
                          {0, 0, 3, 6, 0, 0, 0, 0, 0},
                          {0, 7, 0, 0, 9, 0, 2, 0, 0},
                          {0, 5, 0, 0, 0, 7, 0, 0, 0},
@@ -39,7 +39,7 @@ public class State {
                          {0, 0, 0, 1, 0, 0, 0, 3, 0},
                          {0, 0, 1, 0, 0, 0, 0, 6, 8},
                          {0, 0, 8, 5, 0, 0, 0, 1, 0},
-                         {0, 9, 0, 0, 0, 0, 4, 0, 0}};
+                         {0, 9, 0, 0, 0, 0, 4, 0, 0}};*/
         /*int[][] input = {{3, 7, 0, 0, 0, 1, 0, 0, 0}, //Example of Expert puzzle
                                  {0, 0, 0, 9, 0, 2, 0, 0, 0},
                                  {0, 0, 0, 0, 0, 6, 5, 1, 0},
@@ -67,7 +67,7 @@ public class State {
                 {0, 0, 2, 8, 9, 0, 0, 0, 1},
                 {3, 8, 0, 5, 2, 0, 0, 0, 0},
                 {0, 0, 0, 0, 6, 3, 0, 0, 0}};*/
-/*        int[][] input = {{0, 0, 7, 6, 8, 0, 0, 0, 1}, //Example of an easy puzzle
+        /*        int[][] input = {{0, 0, 7, 6, 8, 0, 0, 0, 1}, //Example of an easy puzzle
                 {0, 0, 0, 0, 3, 0, 8, 0, 5},
                 {5, 8, 0, 2, 0, 9, 0, 6, 0},
                 {9, 3, 0, 0, 6, 0, 0, 2, 4},
