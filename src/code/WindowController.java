@@ -5,9 +5,15 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.PopupControl;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Popup;
+import javafx.stage.Stage;
 import org.w3c.dom.Text;
 
 import java.net.URL;
@@ -381,6 +387,11 @@ public class WindowController implements Initializable {
                         textField.setText("");
                     else if (Integer.parseInt(sNew) == 0)
                         textField.setText("");
+                    try {
+                        constraintFunc(textField);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
             });
         }
@@ -390,32 +401,57 @@ public class WindowController implements Initializable {
     private void clearTextField(Event event) {
         TextField tf = (TextField) event.getSource();
         tf.setText("");
-        /*int number = 0;
-        if (id.length() == 2) number = Integer.parseInt(id.substring(1, 2));
-        else if (id.length() == 3) number = Integer.parseInt(id.substring(2, 3));*/
     }
 
     //check solve clear load
     @FXML
-    private void checkPuzzle(){
+    private void checkPuzzle() {
 
     }
 
     @FXML
-    private void solvePuzzle(){
+    private void solvePuzzle() {
 
     }
 
     @FXML
-    private void clearPuzzle(){
-        for(TextField textField : listOfCells){
+    private void clearPuzzle() {
+        for (TextField textField : listOfCells) {
             textField.setText("");
         }
     }
 
     @FXML
-    private void loadPuzzle(){
+    private void loadPuzzle() {
         //Will do later
+    }
+
+
+    private void constraintFunc(TextField textField) throws Exception {
+        String id = textField.getId();
+        int number = 0;
+        if (id.length() == 2) number = Integer.parseInt(id.substring(1, 2));
+        else if (id.length() == 3) number = Integer.parseInt(id.substring(2, 3));
+        int[] rowArray = {2, 3, 4, 5, 6, 7, 8, 9};
+        int[] boxArray = {2, 3, 10, 11, 12, 19, 20, 21};
+        int[] colArray = {10, 19, 28, 37, 46, 55, 64, 73};
+
+        for (Integer i : rowArray) {
+            if (listOfCells.get(i - 1).getText().equals(textField.getText()) && !textField.getText().equals("") && !listOfCells.get(i - 1).getText().equals("")) {
+                System.out.println("hii");
+                textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
+                textField.setDisable(true);
+                popUpMethod();
+            }
+        }
+    }
+
+    private void popUpMethod() throws Exception {
+        Parent root = FXMLLoader.load(getClass().getResource("popup.fxml"));
+        Stage stage = new Stage();
+        stage.setTitle("Error!");
+        stage.setScene(new Scene(root, 300, 200));
+        stage.show();
     }
 
 }
