@@ -286,14 +286,11 @@ public class WindowController implements Initializable {
     @FXML
     TextField u81;
 
-
-
-
-
+    ArrayList<TextField> listOfCells = new ArrayList<>();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ArrayList<TextField> listOfCells = new ArrayList<>();
+
         listOfCells.add(u1);
         listOfCells.add(u2);
         listOfCells.add(u3);
@@ -376,7 +373,7 @@ public class WindowController implements Initializable {
         listOfCells.add(u80);
         listOfCells.add(u81);
 
-        for(TextField textField : listOfCells) {
+        for (TextField textField : listOfCells) {
             textField.textProperty().addListener(new ChangeListener<String>() {
                 @Override
                 public void changed(ObservableValue<? extends String> observableValue, String sOld, String sNew) {
@@ -387,14 +384,10 @@ public class WindowController implements Initializable {
                 }
             });
         }
-
-
-
-
     }
 
     @FXML
-    private void clearTextField(Event event){
+    private void clearTextField(Event event) {
         TextField tf = (TextField) event.getSource();
         tf.setText("");
         /*int number = 0;
@@ -402,10 +395,27 @@ public class WindowController implements Initializable {
         else if (id.length() == 3) number = Integer.parseInt(id.substring(2, 3));*/
     }
 
-    private void listeningChecker(TextField textField, String sNew){
-        if (!sNew.matches("\\d"))
-            u1.setText("");
-        else if (Integer.parseInt(sNew) == 0)
-            u1.setText("");
+    //check solve clear load
+    @FXML
+    private void checkPuzzle(){
+
     }
+
+    @FXML
+    private void solvePuzzle(){
+
+    }
+
+    @FXML
+    private void clearPuzzle(){
+        for(TextField textField : listOfCells){
+            textField.setText("");
+        }
+    }
+
+    @FXML
+    private void loadPuzzle(){
+        //Will do later
+    }
+
 }
