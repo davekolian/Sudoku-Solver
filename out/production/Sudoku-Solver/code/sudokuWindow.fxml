@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.WindowController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="640.0" prefWidth="550.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.WindowController">
    <children>
       <Pane layoutX="42.0" layoutY="44.0" prefHeight="470.0" prefWidth="470.0">
          <children>
@@ -547,22 +547,12 @@
             </GridPane>
          </children>
       </Pane>
-      <Button layoutX="171.0" layoutY="541.0" mnemonicParsing="false" onMouseClicked="#checkPuzzle" prefHeight="49.0" prefWidth="95.0" text="Check">
+      <Button layoutX="169.0" layoutY="554.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#solvePuzzle" prefHeight="50.0" prefWidth="100.0" text="Solve">
          <font>
             <Font size="20.0" />
          </font>
       </Button>
-      <Button layoutX="277.0" layoutY="541.0" mnemonicParsing="false" onMouseClicked="#solvePuzzle" prefHeight="50.0" prefWidth="102.0" text="Solve">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="277.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#loadPuzzle" prefHeight="49.0" prefWidth="102.0" text="Load">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Button>
-      <Button layoutX="171.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#clearPuzzle" prefHeight="49.0" prefWidth="95.0" text="Clear">
+      <Button layoutX="281.0" layoutY="554.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onMouseClicked="#clearPuzzle" prefHeight="50.0" prefWidth="100.0" text="Clear">
          <font>
             <Font size="20.0" />
          </font>

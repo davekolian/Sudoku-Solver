@@ -387,10 +387,12 @@ public class WindowController implements Initializable {
                         textField.setText("");
                     else if (Integer.parseInt(sNew) == 0)
                         textField.setText("");
-                    try {
-                        constraintFunc(textField);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                    else {
+                        try {
+                            constraintFunc(textField);
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
                     }
                 }
             });
@@ -403,39 +405,48 @@ public class WindowController implements Initializable {
         tf.setText("");
     }
 
-    //check solve clear load
-    @FXML
-    private void checkPuzzle() {
+    private int countDigits() {
+        int counter = 0;
 
+        for (TextField textField : listOfCells) {
+            if (!textField.getText().equals("")) counter++;
+        }
+
+        return counter;
     }
+
 
     @FXML
     private void solvePuzzle(Event event) {
-        int[][] puzzle = new int[9][9];
-        int rowC = 0;
-        int colC = 0;
-        for (TextField tf : listOfCells) {
-            if (!tf.getText().equals("")) {
-                puzzle[colC][rowC] = Integer.parseInt(tf.getText());
-                tf.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
-            } else {
-                puzzle[colC][rowC] = 0;
-                tf.setStyle("-fx-text-inner-color: #0000FF; -fx-display-caret: false");
+        if (countDigits() < 17)
+            System.out.println("More digits needed!");
+        else {
+            int[][] puzzle = new int[9][9];
+            int rowC = 0;
+            int colC = 0;
+            for (TextField tf : listOfCells) {
+                if (!tf.getText().equals("")) {
+                    puzzle[colC][rowC] = Integer.parseInt(tf.getText());
+                    tf.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
+                } else {
+                    puzzle[colC][rowC] = 0;
+                    tf.setStyle("-fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                }
+                if (rowC % 8 == 0 && rowC != 0) {
+                    colC++;
+                    rowC = 0;
+                } else
+                    rowC++;
             }
-            if (rowC % 8 == 0 && rowC != 0) {
-                colC++;
-                rowC = 0;
-            } else
-                rowC++;
-        }
 
-        State start = new State().start(puzzle);
-        int answer = SudokuSolver.function(start);
+            State start = new State().start(puzzle);
+            int answer = SudokuSolver.function(start);
 
-        if (answer == 1)
-            System.out.println("yay");
-        else if (answer == -1) {
-            System.out.println("boo");
+            if (answer == 1)
+                System.out.println("yay");
+            else if (answer == -1) {
+                System.out.println("boo");
+            }
         }
 
     }
@@ -445,10 +456,9 @@ public class WindowController implements Initializable {
 
         for (TextField textField : listOfCells) {
             textField.setText(String.valueOf(state.getCells().get(cellCounter).getValue()));
-            //textField.setDisable(true);
             cellCounter++;
         }
-            }
+    }
 
     @FXML
     private void clearPuzzle() {
@@ -457,32 +467,152 @@ public class WindowController implements Initializable {
         }
     }
 
-    @FXML
-    private void loadPuzzle() {
-        //Will do later
-    }
-
-
     private void constraintFunc(TextField textField) throws Exception {
         String id = textField.getId();
         int number = 0;
         if (id.length() == 2) number = Integer.parseInt(id.substring(1, 2));
-        else if (id.length() == 3) number = Integer.parseInt(id.substring(2, 3));
-        int[] rowArray = {2, 3, 4, 5, 6, 7, 8, 9};
-        int[] boxArray = {2, 3, 10, 11, 12, 19, 20, 21};
-        int[] colArray = {10, 19, 28, 37, 46, 55, 64, 73};
+        else if (id.length() == 3) number = Integer.parseInt(id.substring(1, 3));
+        int[] rowArray = getRowVals(textField);
+        int[] boxArray = getBoxVals(textField);
+        int[] colArray = getColVals(textField);
+        int[] finalArray = new int[rowArray.length + colArray.length + boxArray.length];
 
-        for (Integer i : rowArray) {
-            if (textField.getText().equals(listOfCells.get(i - 1).getText())) {
-                System.out.println(listOfCells.get(i - 1).getText());
-                System.out.println(textField.getText());
+        System.arraycopy(rowArray, 0, finalArray, 0, rowArray.length); //copies first array into new array
+        System.arraycopy(colArray, 0, finalArray, rowArray.length, colArray.length);
+        System.arraycopy(boxArray, 0, finalArray, rowArray.length+colArray.length,boxArray.length);
+
+        for (Integer i : finalArray) {
+            if (textField.getText().equals(listOfCells.get(i - 1).getText()) && textField != listOfCells.get(i - 1)) {
+
                 System.out.println("hii");
-                //textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
+                textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
                 //textField.setDisable(true);
                 //popUpMethod();
-
+                break;
+            } else {
+                textField.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
             }
         }
+
+    }
+
+    private int[] getRowVals(TextField textField) {
+        String id = textField.getId();
+        int num = 0;
+        int row = 1;
+        int[] result = new int[9];
+        if (id.length() == 2) num = Integer.parseInt(id.substring(1, 2));
+        else if (id.length() == 3) num = Integer.parseInt(id.substring(1, 3));
+
+
+        while (String.valueOf(num).length() >= 2) {
+            num = num - 9;
+            row++;
+        }
+
+        int start = 0;
+        if (row != 1) start = 9 * (row - 1) + 1;
+        else start = 1;
+        for (int i = 0; i < result.length; i++) {
+            result[i] = start + i;
+        }
+
+        return result;
+
+    }
+
+    private int[] getColVals(TextField textField) {
+        String id = textField.getId();
+        int[] result = new int[9];
+        int col = 0;
+        int count = 1;
+        if (id.length() == 2) col = Integer.parseInt(id.substring(1, 2));
+        else if (id.length() == 3) col = Integer.parseInt(id.substring(1, 3));
+        int num = col;
+
+
+        while (String.valueOf(col).length() >= 2) {
+            col = col - 9;
+            count++;
+        }
+
+        for (int i = 0; i < result.length; i++) {
+            int val = col + (9 * (i));
+            result[i] = val;
+        }
+
+        return result;
+
+    }
+
+    private int[] getBoxVals(TextField textField) {
+        String id = textField.getId();
+        int[] result = new int[9];
+        int col = 0;
+        int row = 1;
+        int box = 0;
+        int start = 0;
+        if (id.length() == 2) col = Integer.parseInt(id.substring(1, 2));
+        else if (id.length() == 3) col = Integer.parseInt(id.substring(1, 3));
+
+        while (String.valueOf(col).length() >= 2) {
+            col = col - 9;
+            row++;
+        }
+
+        if ((row >= 1 && row <= 3) && (col >= 1 && col <= 3)) box = 1;
+        if ((row >= 1 && row <= 3) && (col >= 4 && col <= 6)) box = 2;
+        if ((row >= 1 && row <= 3) && (col >= 7 && col <= 9)) box = 3;
+        if ((row >= 4 && row <= 6) && (col >= 1 && col <= 3)) box = 4;
+        if ((row >= 4 && row <= 6) && (col >= 4 && col <= 6)) box = 5;
+        if ((row >= 4 && row <= 6) && (col >= 7 && col <= 9)) box = 6;
+        if ((row >= 7 && row <= 9) && (col >= 1 && col <= 3)) box = 7;
+        if ((row >= 7 && row <= 9) && (col >= 4 && col <= 6)) box = 8;
+        if ((row >= 7 && row <= 9) && (col >= 7 && col <= 9)) box = 9;
+
+        switch (box) {
+            case 1:
+                start = 1;
+                break;
+            case 2:
+                start = 4;
+                break;
+            case 3:
+                start = 6;
+                break;
+            case 4:
+                start = 28;
+                break;
+            case 5:
+                start = 31;
+                break;
+            case 6:
+                start = 34;
+                break;
+            case 7:
+                start = 55;
+                break;
+            case 8:
+                start = 58;
+                break;
+            case 9:
+                start = 61;
+                break;
+        }
+
+        int j = 0;
+
+        for (int i = 0; i < result.length; i++) {
+            int val = start + j;
+            if(j == 2) j = 9;
+            else if(j == 11) j = 18;
+            else j++;
+
+            result[i] = val;
+        }
+
+        return result;
+
     }
 
     private void popUpMethod() throws Exception {
