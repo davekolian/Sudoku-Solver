@@ -19,8 +19,8 @@ public class SudokuSolver {
 
         nodes.add(new Node(state, null));
 
-        System.out.println("Starting State: ");
-        System.out.println(nodes.get(0).getState());
+        //System.out.println("Starting State: ");
+        //System.out.println(nodes.get(0).getState());
 
         int answer = moreSolutions(nodes.get(0), nodes);
 
@@ -85,9 +85,9 @@ public class SudokuSolver {
                         listOfNodes.add(childNode);
                         //System.out.println(childNode.getState());
                         if (isFull(childNode.getState())) {
-                            System.out.println("Answer State: ");
-                            System.out.println(childNode.getState());
-                            System.out.println("Size of nodes list: " + listOfNodes.size());
+                            //System.out.println("Answer State: ");
+                            //System.out.println(childNode.getState());
+                            //System.out.println("Size of nodes list: " + listOfNodes.size());
                             //exit(0); //Exit the program, done cause backtracking thousands of nodes back is memory hungry
                             WindowController.fillPuzzle(childNode.getState());
                             return 1;

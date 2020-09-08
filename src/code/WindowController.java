@@ -12,9 +12,11 @@ import javafx.scene.Scene;
 import javafx.scene.control.PopupControl;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.text.Text;
 import javafx.stage.Popup;
 import javafx.stage.Stage;
-import org.w3c.dom.Text;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -292,7 +294,12 @@ public class WindowController implements Initializable {
     @FXML
     TextField u81;
 
+    @FXML
+    Text messageBox;
+
     static ArrayList<TextField> listOfCells = new ArrayList<>();
+    boolean error = false;
+    boolean solved = false;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -388,11 +395,7 @@ public class WindowController implements Initializable {
                     else if (Integer.parseInt(sNew) == 0)
                         textField.setText("");
                     else {
-                        try {
-                            constraintFunc(textField);
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
+                        constraintFunc(textField);
                     }
                 }
             });
@@ -418,12 +421,20 @@ public class WindowController implements Initializable {
 
     @FXML
     private void solvePuzzle(Event event) {
-        if (countDigits() < 17)
-            System.out.println("More digits needed!");
-        else {
+        if (countDigits() < 17) {
+            messageBox.setText("Few digits!");
+            Color color = Color.rgb(255, 0, 0);
+            messageBox.setFill(color);
+        } else if (error) {
+            messageBox.setText("You made a mistake!");
+            Color color = Color.rgb(255, 0, 0);
+            messageBox.setFill(color);
+        } else {
+            messageBox.setText("");
             int[][] puzzle = new int[9][9];
             int rowC = 0;
             int colC = 0;
+            solved = true;
             for (TextField tf : listOfCells) {
                 if (!tf.getText().equals("")) {
                     puzzle[colC][rowC] = Integer.parseInt(tf.getText());
@@ -442,10 +453,15 @@ public class WindowController implements Initializable {
             State start = new State().start(puzzle);
             int answer = SudokuSolver.function(start);
 
-            if (answer == 1)
-                System.out.println("yay");
-            else if (answer == -1) {
-                System.out.println("boo");
+            if (answer == 1) {
+                messageBox.setText("Solved!");
+                Color color = Color.rgb(0, 255, 0);
+                messageBox.setFill(color);
+            } else if (answer == -1) {
+                messageBox.setText("Cannot be solved!");
+                solved = false;
+                Color color = Color.rgb(255, 0, 0);
+                messageBox.setFill(color);
             }
         }
 
@@ -462,38 +478,37 @@ public class WindowController implements Initializable {
 
     @FXML
     private void clearPuzzle() {
+        messageBox.setText("");
+        solved = false;
+        error = false;
         for (TextField textField : listOfCells) {
             textField.setText("");
         }
     }
 
-    private void constraintFunc(TextField textField) throws Exception {
-        String id = textField.getId();
-        int number = 0;
-        if (id.length() == 2) number = Integer.parseInt(id.substring(1, 2));
-        else if (id.length() == 3) number = Integer.parseInt(id.substring(1, 3));
-        int[] rowArray = getRowVals(textField);
-        int[] boxArray = getBoxVals(textField);
-        int[] colArray = getColVals(textField);
-        int[] finalArray = new int[rowArray.length + colArray.length + boxArray.length];
+    private void constraintFunc(TextField textField) {
+        if(!solved) {
+            int[] rowArray = getRowVals(textField);
+            int[] colArray = getColVals(textField);
+            int[] boxArray = getBoxVals(textField);
+            int[] finalArray = new int[rowArray.length + colArray.length + boxArray.length];
 
-        System.arraycopy(rowArray, 0, finalArray, 0, rowArray.length); //copies first array into new array
-        System.arraycopy(colArray, 0, finalArray, rowArray.length, colArray.length);
-        System.arraycopy(boxArray, 0, finalArray, rowArray.length+colArray.length,boxArray.length);
+            System.arraycopy(rowArray, 0, finalArray, 0, rowArray.length); //copies first array into new array
+            System.arraycopy(colArray, 0, finalArray, rowArray.length, colArray.length);
+            System.arraycopy(boxArray, 0, finalArray, rowArray.length + colArray.length, boxArray.length);
 
-        for (Integer i : finalArray) {
-            if (textField.getText().equals(listOfCells.get(i - 1).getText()) && textField != listOfCells.get(i - 1)) {
-
-                System.out.println("hii");
-                textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
-                //textField.setDisable(true);
-                //popUpMethod();
-                break;
-            } else {
-                textField.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
+            for (Integer i : finalArray) {
+                if (textField.getText().equals(listOfCells.get(i - 1).getText()) && textField != listOfCells.get(i - 1)) {
+                    textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
+                    error = true;
+                    break;
+                } else {
+                    textField.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
+                    error = false;
+                    messageBox.setText("");
+                }
             }
         }
-
     }
 
     private int[] getRowVals(TextField textField) {
@@ -578,7 +593,7 @@ public class WindowController implements Initializable {
                 start = 4;
                 break;
             case 3:
-                start = 6;
+                start = 7;
                 break;
             case 4:
                 start = 28;
@@ -604,8 +619,8 @@ public class WindowController implements Initializable {
 
         for (int i = 0; i < result.length; i++) {
             int val = start + j;
-            if(j == 2) j = 9;
-            else if(j == 11) j = 18;
+            if (j == 2) j = 9;
+            else if (j == 11) j = 18;
             else j++;
 
             result[i] = val;
