@@ -2,21 +2,21 @@
 	-fx-background-color: #232371;
 }
 
+Text {
+	-fx-font-style: oblique;
+	-fx-text-fill: white;
+}
+
 #helpMenu {
 	-fx-border-color: black;
 	-fx-border-width: 2px;
 	-fx-background-color: white;
 }
 
-
-#helpMenu2 {
-	-fx-border-color: black;
-	-fx-border-width: 1px;
-	-fx-background-color: white;
-}
-
 Button {
 	-fx-font-family: Arial;
+	-fx-font-style: oblique;
+	-fx-font-size: 20px;
 	-fx-background-color: #232371;
 	-fx-border-width: 1px;
 	-fx-border-color: white;
@@ -26,6 +26,8 @@ Button {
 
 Button:hover {
 	-fx-font-family: Arial;
+	-fx-font-style: oblique;
+	-fx-font-size: 20px;
 	-fx-background-color: #232371;
 	-fx-border-width: 1px;
 	-fx-border-color: white;
@@ -36,6 +38,8 @@ Button:hover {
 
 Button:pressed {
 	-fx-font-family: Arial;
+	-fx-font-style: oblique;
+	-fx-font-size: 20px;
 	-fx-background-color: #232371;
 	-fx-border-width: 1px;
 	-fx-border-color: white;
@@ -45,4 +49,6 @@ Button:pressed {
 
 TextField {
 	-fx-font-family: Arial;
+	-fx-font-size: 29px;
+	-fx-display-caret: false;
 }

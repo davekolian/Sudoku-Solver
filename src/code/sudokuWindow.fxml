@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="620.0" prefWidth="635.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.WindowController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="635.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.WindowController">
    <children>
       <Pane layoutX="30.0" layoutY="56.0" prefHeight="470.0" prefWidth="470.0">
          <children>
@@ -26,7 +26,7 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="u1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;">
+                  <TextField fx:id="u1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0">
                      <font>
                         <Font name="Arial" size="29.0" />
                      </font>
@@ -558,7 +558,7 @@
             <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" text="Help">
+            <Button mnemonicParsing="false" onMouseEntered="#helpButton" onMouseExited="#helpButton" onMousePressed="#helpButton" prefHeight="85.0" prefWidth="85.0" text="Help">
                <font>
                   <Font size="20.0" />
                </font>
@@ -573,17 +573,29 @@
                   <Font size="20.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="85.0" prefWidth="85.0" text="Demo" GridPane.rowIndex="3">
+            <Button mnemonicParsing="false" onMousePressed="#demoButton" prefHeight="85.0" prefWidth="85.0" text="Demo" GridPane.rowIndex="3">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="helpButton" layoutX="10.0" layoutY="13.0" mnemonicParsing="false" onMouseEntered="#helpButton" onMouseExited="#helpButton" onMousePressed="#helpButton" prefHeight="85.0" prefWidth="85.0" text="Help">
                <font>
                   <Font size="20.0" />
                </font>
             </Button>
          </children>
       </GridPane>
-      <Text fx:id="messageBox" layoutX="28.0" layoutY="584.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Solved!" textAlignment="CENTER" wrappingWidth="585.6000122070313">
+      <Text fx:id="messageBox" layoutX="25.0" layoutY="576.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="585.6000122070313">
          <font>
             <Font size="39.0" />
          </font>
       </Text>
+      <Pane id="helpMenu" fx:id="helpBox" layoutX="281.0" layoutY="157.0" prefHeight="61.0" prefWidth="286.0" visible="false">
+         <children>
+            <Text layoutX="7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 1: Click a cell and type a number to fill the cell." textAlignment="CENTER" wrappingWidth="272.40234375" />
+            <Text layoutX="4.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 2: Fill all the relevant cells to input the puzzle." textAlignment="CENTER" wrappingWidth="272.40234375" />
+            <Text layoutX="-3.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 3: Then click on 'Solve' to solve your puzzle!" textAlignment="CENTER" wrappingWidth="272.40234375" />
+         </children>
+      </Pane>
    </children>
 </AnchorPane>

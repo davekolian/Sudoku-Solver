@@ -5,8 +5,11 @@ import javafx.beans.value.ObservableValue;
 import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
@@ -15,6 +18,12 @@ import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class WindowController implements Initializable {
+    @FXML
+    Button helpButton;
+
+    @FXML
+    Pane helpBox;
+
     @FXML
     GridPane box1;
 
@@ -479,7 +488,7 @@ public class WindowController implements Initializable {
     }
 
     private void constraintFunc(TextField textField) {
-        if(!solved) {
+        if (!solved) {
             int[] rowArray = getRowVals(textField);
             int[] colArray = getColVals(textField);
             int[] boxArray = getBoxVals(textField);
@@ -620,5 +629,38 @@ public class WindowController implements Initializable {
 
         return result;
 
+    }
+
+    @FXML
+    public void helpButton(MouseEvent event) {
+        if (event.getEventType() == MouseEvent.MOUSE_ENTERED) {
+            helpBox.setVisible(true);
+            helpBox.setLayoutX(event.getSceneX() - helpBox.getWidth());
+        } else if (event.getEventType() == MouseEvent.MOUSE_EXITED) {
+            helpBox.setVisible(false);
+        }
+    }
+
+    @FXML
+    public void demoButton(Event event) {
+        int counter = 0;
+        int[][] input = {{8, 0, 0, 0, 0, 0, 0, 0, 0}, //Hardest puzzle ever
+                {0, 0, 3, 6, 0, 0, 0, 0, 0},
+                {0, 7, 0, 0, 9, 0, 2, 0, 0},
+                {0, 5, 0, 0, 0, 7, 0, 0, 0},
+                {0, 0, 0, 0, 4, 5, 7, 0, 0},
+                {0, 0, 0, 1, 0, 0, 0, 3, 0},
+                {0, 0, 1, 0, 0, 0, 0, 6, 8},
+                {0, 0, 8, 5, 0, 0, 0, 1, 0},
+                {0, 9, 0, 0, 0, 0, 4, 0, 0}};
+
+        for(int i = 0; i < input[0].length; i++){
+            for(int j = 0; j < input[0].length; j++){
+                if(input[i][j] != 0) listOfCells.get(counter).setText(String.valueOf(input[i][j]));
+                else listOfCells.get(counter).setText("");
+
+                counter++;
+            }
+        }
     }
 }
