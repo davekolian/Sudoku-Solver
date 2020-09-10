@@ -2,21 +2,13 @@ package code;
 
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
-import javafx.event.ActionEvent;
 import javafx.event.Event;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.PopupControl;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 import javafx.scene.text.Text;
-import javafx.stage.Popup;
-import javafx.stage.Stage;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -629,13 +621,4 @@ public class WindowController implements Initializable {
         return result;
 
     }
-
-    private void popUpMethod() throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("popup.fxml"));
-        Stage stage = new Stage();
-        stage.setTitle("Error!");
-        stage.setScene(new Scene(root, 300, 200));
-        stage.show();
-    }
-
 }
