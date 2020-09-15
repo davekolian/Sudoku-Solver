@@ -7,20 +7,10 @@ import static java.lang.System.exit;
 
 public class SudokuSolver {
 
-    public static void main(String[] args) {
-
-        //nodes.add(new Node(new State().start(), null)); //Creates parent node from the details in State Class
-
-
-    }
-
     public static int function(State state) {
         ArrayList<Node> nodes = new ArrayList<>(); //List of all nodes
 
         nodes.add(new Node(state, null));
-
-        //System.out.println("Starting State: ");
-        //System.out.println(nodes.get(0).getState());
 
         int answer = moreSolutions(nodes.get(0), nodes);
 
@@ -67,11 +57,7 @@ public class SudokuSolver {
     public static int moreSolutions(Node parentNode, List<Node> listOfNodes) {
         int cantAdd = 0;
         int found = 0;
-        int digits = 0;
-
-        if (parentNode.getState().getCells().size() == 16) digits = 4;
-        else if (parentNode.getState().getCells().size() == 36) digits = 6;
-        else if (parentNode.getState().getCells().size() == 81) digits = 9;
+        int digits = 9;
 
         for (Cell cell : parentNode.getState().getCells()) {
             if (found == -1)
