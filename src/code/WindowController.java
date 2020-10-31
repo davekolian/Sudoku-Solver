@@ -6,6 +6,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -302,8 +303,18 @@ public class WindowController implements Initializable {
     boolean error = false;
     boolean solved = false;
 
+    @FXML
+    ComboBox<String> puzzleCombo;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        puzzleCombo.setPromptText("3x3");
+
+        puzzleCombo.getItems().setAll("3x3", "2x3", "2x2");
+
+        puzzleCombo.getSelectionModel().selectedItemProperty().addListener((options, old, newVal) -> {
+            System.out.println(newVal);
+        });
 
         listOfCells.add(u1);
         listOfCells.add(u2);
@@ -422,7 +433,7 @@ public class WindowController implements Initializable {
 
     @FXML
     private void solvePuzzle(Event event) {
-        if (countDigits() < 17) {
+        if (countDigits() < 22) {
             messageBox.setText("Few digits!");
             Color color = Color.rgb(255, 0, 0);
             messageBox.setFill(color);
@@ -452,7 +463,7 @@ public class WindowController implements Initializable {
             }
 
             State start = new State().start(puzzle);
-            int answer = SudokuSolver.function(start);
+            int answer = SudokuSolver.startSolutionCheck(start);
 
             if (answer == 1) {
                 messageBox.setText("Solved!");

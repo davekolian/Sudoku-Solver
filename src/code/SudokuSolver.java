@@ -7,7 +7,7 @@ import static java.lang.System.exit;
 
 public class SudokuSolver {
 
-    public static int function(State state) {
+    public static int startSolutionCheck(State state) {
         ArrayList<Node> nodes = new ArrayList<>(); //List of all nodes
 
         nodes.add(new Node(state, null));
@@ -20,7 +20,7 @@ public class SudokuSolver {
     //Function which checks if an operation is allowed
     public static Boolean isLegal(State state, Cell cell, int newValue) {
 
-        int size = (int) Math.sqrt(state.getCells().size()); //16 -> 4, 36 ->, 81 -> 9
+        int size = (int) Math.sqrt(state.getCells().size()); //16 -> 4, 36 -> 6, 81 -> 9
         if (newValue < 1 || newValue > size) return false;
 
         //Checks all values in the selected cell's box with the newValue
@@ -61,7 +61,7 @@ public class SudokuSolver {
 
         for (Cell cell : parentNode.getState().getCells()) {
             if (found == -1)
-                return -1; //cause the function to go to the start in case no solution can be found
+                return -1; //cause the startSolutionCheck to go to the start in case no solution can be found
             if (cell.getValue() == 0) {
                 for (int i = 1; i <= digits; i++) {
                     if (isLegal(parentNode.getState(), cell, i)) {
@@ -78,7 +78,7 @@ public class SudokuSolver {
                             WindowController.fillPuzzle(childNode.getState());
                             return 1;
                         }
-                        found = moreSolutions(childNode, listOfNodes); //call the function again to see if it has more childNodes
+                        found = moreSolutions(childNode, listOfNodes); //call the startSolutionCheck again to see if it has more childNodes
                         if(found == 1) return 1;
                     } else if (cantAdd == digits) {
                         return -1; //returns to the prev node if it cannot find more childNodes and continue checking if there are other possible nodes with the parentNode

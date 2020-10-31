@@ -60,22 +60,6 @@ public class State {
         return startState;
     }
 
-    /*@Override
-    public String toString() {
-        String result = "";
-        int count = 1;
-
-        for (Cell cell : getCells()) {
-            result += cell.getValue() + " ";
-            if (count % 3 == 0) result += " | ";
-            if (count % 9 == 0 && count != 0) result += "\n";
-            if (count % 27 == 0 && count != 0) result += "--------------------------\n";
-            count++;
-        }
-
-        return result;
-    }*/
-
     //Function to get all the values in a box
     public String getValuesInBox(int box) {
         String result = "";
