@@ -997,6 +997,6 @@
             <Text layoutX="-3.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 3: Then click on 'Solve' to solve your puzzle!" textAlignment="CENTER" wrappingWidth="272.40234375" />
          </children>
       </Pane>
-      <ComboBox fx:id="puzzleCombo" layoutX="543.0" layoutY="14.0" prefHeight="26.0" prefWidth="68.0" promptText="Type" />
+      <ComboBox fx:id="puzzleCombo" layoutX="553.0" layoutY="14.0" prefHeight="26.0" prefWidth="68.0" promptText="Type" />
    </children>
 </AnchorPane>

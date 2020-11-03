@@ -706,8 +706,8 @@ public class WindowController implements Initializable {
 
     @FXML
     private void solvePuzzle(Event event) {
-        int digits = 0;
-        int limit = 0;
+        int digits;
+        int limit;
 
         if (type == 1) {
             digits = 9;
@@ -717,7 +717,7 @@ public class WindowController implements Initializable {
             limit = 4;
         } else {
             digits = 6;
-            limit = 6;
+            limit = 10;
         }
 
         if (countDigits() < limit && !error) {
@@ -819,7 +819,7 @@ public class WindowController implements Initializable {
     }
 
     private int[] getRowVals(TextField textField) {
-        int maxDigits = 0;
+        int maxDigits;
         if (type == 1) {
             maxDigits = 9;
         } else if (type == 2) {
@@ -850,7 +850,7 @@ public class WindowController implements Initializable {
     }
 
     private int[] getColVals(TextField textField) {
-        int maxDigits = 0;
+        int maxDigits;
         if (type == 1) {
             maxDigits = 9;
         } else if (type == 2) {
@@ -876,11 +876,10 @@ public class WindowController implements Initializable {
         }
 
         return result;
-
     }
 
     private int[] getBoxVals(TextField textField) {
-        int maxDigits = 0;
+        int maxDigits;
         if (type == 1) {
             maxDigits = 9;
         } else if (type == 2) {
