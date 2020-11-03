@@ -478,16 +478,11 @@ public class WindowController implements Initializable {
         puzzleCombo.setPromptText("3x3");
         gridOne.setVisible(true);
 
-        System.out.println(((GridPane) (gridOne.getChildren().get(0))).getChildren().get(1).getId());
-        System.out.println(gridOne.getChildren().size());
-        int col = 0;
-        int row = 0;
-        int next = 0;
-
+        //System.out.println(((GridPane) (gridOne.getChildren().get(0))).getChildren().get(1).getId());
+        //System.out.println(gridOne.getChildren().size());
         checkType();
 
         puzzleCombo.getItems().setAll("3x3", "2x3", "2x2");
-
         puzzleCombo.getSelectionModel().selectedItemProperty().addListener((options, old, newVal) -> {
             if (newVal.equals("3x3")) {
                 type = 1;
@@ -502,12 +497,10 @@ public class WindowController implements Initializable {
 
         });
 
-
     }
 
     public void checkType() {
         if (type == 1) {
-            System.out.println("here");
             gridTwo.setVisible(false);
             gridThree.setVisible(false);
             gridOne.setVisible(true);
@@ -602,8 +595,6 @@ public class WindowController implements Initializable {
             gridThree.setVisible(false);
             gridTwo.setVisible(true);
             type = 2;
-
-            System.out.println("added");
 
             clearPuzzle();
             listOfCells.clear();
@@ -798,7 +789,49 @@ public class WindowController implements Initializable {
                 }
             }
         } else {
+            if (countDigits() < 6) {
+                messageBox.setText("Few digits!");
+                Color color = Color.rgb(255, 0, 0);
+                messageBox.setFill(color);
+            } else if (error) {
+                messageBox.setText("You made a mistake!");
+                Color color = Color.rgb(255, 0, 0);
+                messageBox.setFill(color);
+            } else {
+                messageBox.setText("");
+                int[][] puzzle = new int[6][6];
+                int rowC = 0;
+                int colC = 0;
+                solved = true;
+                for (TextField tf : listOfCells) {
+                    if (!tf.getText().equals("")) {
+                        puzzle[colC][rowC] = Integer.parseInt(tf.getText());
+                        tf.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
+                    } else {
+                        puzzle[colC][rowC] = 0;
+                        tf.setStyle("-fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                    }
+                    if (rowC % 5 == 0 && rowC != 0) {
+                        colC++;
+                        rowC = 0;
+                    } else
+                        rowC++;
+                }
 
+                State start = new State().start(puzzle);
+                int answer = SudokuSolver.startSolutionCheck(start);
+
+                if (answer == 1) {
+                    messageBox.setText("Solved!");
+                    Color color = Color.rgb(0, 255, 0);
+                    messageBox.setFill(color);
+                } else if (answer == -1) {
+                    messageBox.setText("Cannot be solved!");
+                    solved = false;
+                    Color color = Color.rgb(255, 0, 0);
+                    messageBox.setFill(color);
+                }
+            }
         }
 
     }
