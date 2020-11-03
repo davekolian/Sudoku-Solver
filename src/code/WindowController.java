@@ -680,9 +680,12 @@ public class WindowController implements Initializable {
                         textField.setText("");
                     else if (Integer.parseInt(sNew) == 0)
                         textField.setText("");
-                    else {
+                    else if (type == 2 && Integer.parseInt(sNew) > 4)
+                        textField.setText("");
+                    else if (type == 3 && Integer.parseInt(sNew) > 6)
+                        textField.setText("");
+                    else
                         constraintFunc(textField);
-                    }
                 }
             });
         }
@@ -829,7 +832,7 @@ public class WindowController implements Initializable {
             System.arraycopy(rowArray, 0, finalArray, 0, rowArray.length); //copies first array into new array
             System.arraycopy(colArray, 0, finalArray, rowArray.length, colArray.length);
             System.arraycopy(boxArray, 0, finalArray, rowArray.length + colArray.length, boxArray.length);
-            
+
             for (Integer i : finalArray) {
                 if (textField.getText().equals(listOfCells.get(i - 1).getText()) && textField != listOfCells.get(i - 1)) {
                     textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
