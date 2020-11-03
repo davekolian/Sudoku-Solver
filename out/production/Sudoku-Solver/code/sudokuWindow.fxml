@@ -980,9 +980,14 @@
             </Button>
          </children>
       </GridPane>
-      <Text fx:id="messageBox" layoutX="25.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="585.6000122070313">
+      <Text fx:id="messageBox" fill="WHITE" layoutX="25.0" layoutY="570.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="585.6000122070313">
          <font>
-            <Font size="39.0" />
+            <Font size="26.0" />
+         </font>
+      </Text>
+      <Text fx:id="timeBox" fill="WHITE" layoutX="25.0" layoutY="598.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="585.6000122070313">
+         <font>
+            <Font size="26.0" />
          </font>
       </Text>
       <Pane id="helpMenu" fx:id="helpBox" layoutX="281.0" layoutY="157.0" prefHeight="61.0" prefWidth="286.0" visible="false">

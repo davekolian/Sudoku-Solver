@@ -16,8 +16,11 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
 
 import java.net.URL;
+import java.sql.Time;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class WindowController implements Initializable {
     @FXML
@@ -457,6 +460,9 @@ public class WindowController implements Initializable {
     Text messageBox;
 
     @FXML
+    Text timeBox;
+
+    @FXML
     ComboBox<String> puzzleCombo;
 
     @FXML
@@ -701,7 +707,7 @@ public class WindowController implements Initializable {
     @FXML
     private void solvePuzzle(Event event) {
         if (type == 1) {
-            if (countDigits() < 22 && !error) {
+            if (countDigits() < 21 && !error) {
                 messageBox.setText("Few digits!");
                 Color color = Color.rgb(255, 0, 0);
                 messageBox.setFill(color);
@@ -731,7 +737,14 @@ public class WindowController implements Initializable {
                 }
 
                 State start = new State().start(puzzle);
+                long startTime = System.nanoTime();
                 int answer = SudokuSolver.startSolutionCheck(start);
+                long endTime = System.nanoTime();
+                long elapsedTime = endTime - startTime;
+                //long elapsedMilli = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
+                double elapsedMilli = (double) TimeUnit.MICROSECONDS.convert(Duration.ofNanos(elapsedTime)) / 1000;
+
+                timeBox.setText("It took " + elapsedMilli + " milliseconds!");
 
                 if (answer == 1) {
                     messageBox.setText("Solved!");
