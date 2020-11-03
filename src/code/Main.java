@@ -12,7 +12,7 @@ public class Main extends Application{
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("sudokuWindow.fxml"));
         stage.setTitle("Sudoku Solver");
-        stage.setScene(new Scene(root, 635, 610));
+        stage.setScene(new Scene(root, 635, 630));
         stage.getIcons().add(new Image(Main.class.getResourceAsStream("sudoku.png")));
         stage.show();
     }

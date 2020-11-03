@@ -57,7 +57,7 @@ public class SudokuSolver {
     public static int moreSolutions(Node parentNode, List<Node> listOfNodes) {
         int cantAdd = 0;
         int found = 0;
-        int digits = 9;
+        int digits = (int) Math.sqrt(parentNode.getState().getCells().size());
 
         for (Cell cell : parentNode.getState().getCells()) {
             if (found == -1)

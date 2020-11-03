@@ -1,54 +1,65 @@
 #bg {
-	-fx-background-color: #232371;
+  -fx-background-color: #232371;
 }
 
 Text {
-	-fx-font-style: oblique;
-	-fx-text-fill: white;
+  -fx-font-style: oblique;
+  -fx-text-fill: white;
 }
 
 #helpMenu {
-	-fx-border-color: black;
-	-fx-border-width: 2px;
-	-fx-background-color: white;
+  -fx-border-color: black;
+  -fx-border-width: 2px;
+  -fx-background-color: white;
 }
 
 Button {
-	-fx-font-family: Arial;
-	-fx-font-style: oblique;
-	-fx-font-size: 20px;
-	-fx-background-color: #232371;
-	-fx-border-width: 1px;
-	-fx-border-color: white;
-	-fx-text-fill: white;
- 	-fx-effect: dropshadow(Gaussian, white, 1, 0, 2, 2);
+  -fx-font-family: Arial;
+  -fx-font-style: oblique;
+  -fx-font-size: 20px;
+  -fx-background-color: #232371;
+  -fx-border-width: 1px;
+  -fx-border-color: white;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow(Gaussian, white, 1, 0, 2, 2);
 }
 
 Button:hover {
-	-fx-font-family: Arial;
-	-fx-font-style: oblique;
-	-fx-font-size: 20px;
-	-fx-background-color: #232371;
-	-fx-border-width: 1px;
-	-fx-border-color: white;
-	-fx-text-fill: white;
- 	-fx-effect: dropshadow(Gaussian, white, 1, 0, 2, 2);
+  -fx-font-family: Arial;
+  -fx-font-style: oblique;
+  -fx-font-size: 20px;
+  -fx-background-color: #232371;
+  -fx-border-width: 1px;
+  -fx-border-color: white;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow(Gaussian, white, 1, 0, 2, 2);
 }
-
 
 Button:pressed {
-	-fx-font-family: Arial;
-	-fx-font-style: oblique;
-	-fx-font-size: 20px;
-	-fx-background-color: #232371;
-	-fx-border-width: 1px;
-	-fx-border-color: white;
-	-fx-text-fill: white;
-	-fx-effect: dropshadow(Gaussian, white, 1, 0, 0, 0);
+  -fx-font-family: Arial;
+  -fx-font-style: oblique;
+  -fx-font-size: 20px;
+  -fx-background-color: #232371;
+  -fx-border-width: 1px;
+  -fx-border-color: white;
+  -fx-text-fill: white;
+  -fx-effect: dropshadow(Gaussian, white, 1, 0, 0, 0);
 }
 
-TextField {
-	-fx-font-family: Arial;
-	-fx-font-size: 28px;
-	-fx-display-caret: false;
+#gridOne TextField {
+  -fx-font-family: Arial;
+  -fx-font-size: 28px;
+  -fx-display-caret: false;
+}
+
+#gridTwo TextField {
+  -fx-font-family: Arial;
+  -fx-font-size: 42px;
+  -fx-display-caret: false;
+}
+
+#gridThree TextField {
+  -fx-font-family: Arial;
+  -fx-font-size: 33px;
+  -fx-display-caret: false;
 }

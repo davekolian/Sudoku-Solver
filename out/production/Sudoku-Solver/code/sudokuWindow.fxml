@@ -11,11 +11,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="635.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.WindowController">
+<AnchorPane id="bg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="630.0" prefWidth="635.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="code.WindowController">
    <children>
-      <Pane fx:id="gridOne" layoutX="46.0" layoutY="70.0" prefHeight="470.0" prefWidth="470.0">
+      <Pane fx:id="gridOne" layoutX="46.0" layoutY="70.0" prefHeight="470.0" prefWidth="470.0" visible="false">
          <children>
-            <GridPane fx:id="box1" gridLinesVisible="true" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu1" gridLinesVisible="true" prefHeight="150.0" prefWidth="150.0">
               <columnConstraints>
                 <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -32,6 +32,26 @@
                         <Font name="Arial" size="29.0" />
                      </font>
                   </TextField>
+                  <TextField fx:id="u10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="u19" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.rowIndex="2">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="u2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.columnIndex="1">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="u11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <font>
+                        <Font size="29.0" />
+                     </font>
+                  </TextField>
                   <TextField fx:id="u21" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font size="29.0" />
@@ -42,22 +62,7 @@
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="u19" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.rowIndex="2">
-                     <font>
-                        <Font size="29.0" />
-                     </font>
-                  </TextField>
                   <TextField fx:id="u12" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.columnIndex="2" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="29.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="u11" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.columnIndex="1" GridPane.rowIndex="1">
-                     <font>
-                        <Font size="29.0" />
-                     </font>
-                  </TextField>
-                  <TextField fx:id="u10" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.rowIndex="1">
                      <font>
                         <Font size="29.0" />
                      </font>
@@ -67,14 +72,9 @@
                         <Font size="29.0" />
                      </font>
                   </TextField>
-                  <TextField fx:id="u2" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="50.0" prefWidth="50.0" style="-fx-display-caret: false;" GridPane.columnIndex="1">
-                     <font>
-                        <Font size="29.0" />
-                     </font>
-                  </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box2" gridLinesVisible="true" layoutX="160.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu2" gridLinesVisible="true" layoutX="160.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -133,7 +133,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box3" gridLinesVisible="true" layoutX="316.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu3" gridLinesVisible="true" layoutX="316.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -192,7 +192,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box4" gridLinesVisible="true" layoutY="158.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu4" gridLinesVisible="true" layoutY="158.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -251,7 +251,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box5" gridLinesVisible="true" layoutX="158.0" layoutY="158.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu5" gridLinesVisible="true" layoutX="158.0" layoutY="158.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -310,7 +310,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box6" gridLinesVisible="true" layoutX="316.0" layoutY="158.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu6" gridLinesVisible="true" layoutX="316.0" layoutY="158.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -369,7 +369,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box7" gridLinesVisible="true" layoutY="315.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu7" gridLinesVisible="true" layoutY="315.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -428,7 +428,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box8" gridLinesVisible="true" layoutX="158.0" layoutY="315.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu8" gridLinesVisible="true" layoutX="158.0" layoutY="315.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -487,7 +487,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box9" gridLinesVisible="true" layoutX="316.0" layoutY="315.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxu9" gridLinesVisible="true" layoutX="316.0" layoutY="315.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -550,7 +550,7 @@
       </Pane>
       <Pane fx:id="gridTwo" layoutX="123.0" layoutY="134.0" prefHeight="314.0" prefWidth="316.0" visible="false">
          <children>
-            <GridPane fx:id="box11" gridLinesVisible="true" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxv1" gridLinesVisible="true" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -562,7 +562,7 @@
                <children>
                   <TextField fx:id="v1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="75.0" prefWidth="75.0">
                      <font>
-                        <Font name="Arial" size="29.0" />
+                        <Font size="29.0" />
                      </font>
                   </TextField>
                   <TextField fx:id="v6" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onKeyPressed="#clearTextField" prefHeight="75.0" prefWidth="75.0" style="-fx-display-caret: false;" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -582,7 +582,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box111" gridLinesVisible="true" layoutX="160.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxv2" gridLinesVisible="true" layoutX="160.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -614,7 +614,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box1111" gridLinesVisible="true" layoutY="160.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxv3" gridLinesVisible="true" layoutY="160.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -646,7 +646,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box1112" gridLinesVisible="true" layoutX="160.0" layoutY="160.0" prefHeight="150.0" prefWidth="150.0">
+            <GridPane fx:id="boxv4" gridLinesVisible="true" layoutX="160.0" layoutY="160.0" prefHeight="150.0" prefWidth="150.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -682,7 +682,7 @@
       </Pane>
       <Pane fx:id="gridThree" layoutX="107.0" layoutY="122.0" prefHeight="389.0" prefWidth="374.0" visible="false">
          <children>
-            <GridPane fx:id="box12" gridLinesVisible="true" prefHeight="120.0" prefWidth="180.0">
+            <GridPane fx:id="boxw1" gridLinesVisible="true" prefHeight="120.0" prefWidth="180.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -725,7 +725,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box21" gridLinesVisible="true" layoutX="190.0" prefHeight="120.0" prefWidth="180.0">
+            <GridPane fx:id="boxw2" gridLinesVisible="true" layoutX="190.0" prefHeight="120.0" prefWidth="180.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -768,7 +768,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box41" gridLinesVisible="true" layoutY="130.0" prefHeight="120.0" prefWidth="180.0">
+            <GridPane fx:id="boxw3" gridLinesVisible="true" layoutY="130.0" prefHeight="120.0" prefWidth="180.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -811,7 +811,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box51" gridLinesVisible="true" layoutX="190.0" layoutY="130.0" prefHeight="120.0" prefWidth="180.0">
+            <GridPane fx:id="boxw4" gridLinesVisible="true" layoutX="190.0" layoutY="130.0" prefHeight="120.0" prefWidth="180.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -854,7 +854,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box71" gridLinesVisible="true" layoutY="260.0" prefHeight="120.0" prefWidth="180.0">
+            <GridPane fx:id="boxw5" gridLinesVisible="true" layoutY="260.0" prefHeight="120.0" prefWidth="180.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -897,7 +897,7 @@
                   </TextField>
                </children>
             </GridPane>
-            <GridPane fx:id="box81" gridLinesVisible="true" layoutX="190.0" layoutY="260.0" prefHeight="120.0" prefWidth="180.0">
+            <GridPane fx:id="boxw6" gridLinesVisible="true" layoutX="190.0" layoutY="260.0" prefHeight="120.0" prefWidth="180.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
