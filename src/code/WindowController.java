@@ -706,147 +706,71 @@ public class WindowController implements Initializable {
 
     @FXML
     private void solvePuzzle(Event event) {
+        int digits = 0;
+        int limit = 0;
+
         if (type == 1) {
-            if (countDigits() < 21 && !error) {
-                messageBox.setText("Few digits!");
-                Color color = Color.rgb(255, 0, 0);
-                messageBox.setFill(color);
-            } else if (error) {
-                messageBox.setText("You made a mistake!");
-                Color color = Color.rgb(255, 0, 0);
-                messageBox.setFill(color);
-            } else {
-                messageBox.setText("");
-                int[][] puzzle = new int[9][9];
-                int rowC = 0;
-                int colC = 0;
-                solved = true;
-                for (TextField tf : listOfCells) {
-                    if (!tf.getText().equals("")) {
-                        puzzle[colC][rowC] = Integer.parseInt(tf.getText());
-                        tf.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
-                    } else {
-                        puzzle[colC][rowC] = 0;
-                        tf.setStyle("-fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                    }
-                    if (rowC % 8 == 0 && rowC != 0) {
-                        colC++;
-                        rowC = 0;
-                    } else
-                        rowC++;
-                }
-
-                State start = new State().start(puzzle);
-                long startTime = System.nanoTime();
-                int answer = SudokuSolver.startSolutionCheck(start);
-                long endTime = System.nanoTime();
-                long elapsedTime = endTime - startTime;
-                //long elapsedMilli = TimeUnit.MILLISECONDS.convert(elapsedTime, TimeUnit.NANOSECONDS);
-                double elapsedMilli = (double) TimeUnit.MICROSECONDS.convert(Duration.ofNanos(elapsedTime)) / 1000;
-
-                timeBox.setText("It took " + elapsedMilli + " milliseconds!");
-
-                if (answer == 1) {
-                    messageBox.setText("Solved!");
-                    Color color = Color.rgb(0, 255, 0);
-                    messageBox.setFill(color);
-                } else if (answer == -1) {
-                    messageBox.setText("Cannot be solved!");
-                    solved = false;
-                    Color color = Color.rgb(255, 0, 0);
-                    messageBox.setFill(color);
-                }
-            }
+            digits = 9;
+            limit = 21;
         } else if (type == 2) {
-            if (countDigits() < 4) {
-                messageBox.setText("Few digits!");
-                Color color = Color.rgb(255, 0, 0);
-                messageBox.setFill(color);
-            } else if (error) {
-                messageBox.setText("You made a mistake!");
-                Color color = Color.rgb(255, 0, 0);
-                messageBox.setFill(color);
-            } else {
-                messageBox.setText("");
-                int[][] puzzle = new int[4][4];
-                int rowC = 0;
-                int colC = 0;
-                solved = true;
-                for (TextField tf : listOfCells) {
-                    if (!tf.getText().equals("")) {
-                        puzzle[colC][rowC] = Integer.parseInt(tf.getText());
-                        tf.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
-                    } else {
-                        puzzle[colC][rowC] = 0;
-                        tf.setStyle("-fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                    }
-                    if (rowC % 3 == 0 && rowC != 0) {
-                        colC++;
-                        rowC = 0;
-                    } else
-                        rowC++;
-                }
-
-                State start = new State().start(puzzle);
-                int answer = SudokuSolver.startSolutionCheck(start);
-
-                if (answer == 1) {
-                    messageBox.setText("Solved!");
-                    Color color = Color.rgb(0, 255, 0);
-                    messageBox.setFill(color);
-                } else if (answer == -1) {
-                    messageBox.setText("Cannot be solved!");
-                    solved = false;
-                    Color color = Color.rgb(255, 0, 0);
-                    messageBox.setFill(color);
-                }
-            }
+            digits = 4;
+            limit = 4;
         } else {
-            if (countDigits() < 6) {
-                messageBox.setText("Few digits!");
-                Color color = Color.rgb(255, 0, 0);
-                messageBox.setFill(color);
-            } else if (error) {
-                messageBox.setText("You made a mistake!");
-                Color color = Color.rgb(255, 0, 0);
-                messageBox.setFill(color);
-            } else {
-                messageBox.setText("");
-                int[][] puzzle = new int[6][6];
-                int rowC = 0;
-                int colC = 0;
-                solved = true;
-                for (TextField tf : listOfCells) {
-                    if (!tf.getText().equals("")) {
-                        puzzle[colC][rowC] = Integer.parseInt(tf.getText());
-                        tf.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
-                    } else {
-                        puzzle[colC][rowC] = 0;
-                        tf.setStyle("-fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                    }
-                    if (rowC % 5 == 0 && rowC != 0) {
-                        colC++;
-                        rowC = 0;
-                    } else
-                        rowC++;
-                }
-
-                State start = new State().start(puzzle);
-                int answer = SudokuSolver.startSolutionCheck(start);
-
-                if (answer == 1) {
-                    messageBox.setText("Solved!");
-                    Color color = Color.rgb(0, 255, 0);
-                    messageBox.setFill(color);
-                } else if (answer == -1) {
-                    messageBox.setText("Cannot be solved!");
-                    solved = false;
-                    Color color = Color.rgb(255, 0, 0);
-                    messageBox.setFill(color);
-                }
-            }
+            digits = 6;
+            limit = 6;
         }
 
+        if (countDigits() < limit && !error) {
+            messageBox.setText("Few digits!");
+            Color color = Color.rgb(255, 0, 0);
+            messageBox.setFill(color);
+        } else if (error) {
+            messageBox.setText("You made a mistake!");
+            Color color = Color.rgb(255, 0, 0);
+            messageBox.setFill(color);
+        } else {
+            messageBox.setText("");
+            int[][] puzzle = new int[digits][digits];
+            int rowC = 0;
+            int colC = 0;
+            solved = true;
+            for (TextField tf : listOfCells) {
+                if (!tf.getText().equals("")) {
+                    puzzle[colC][rowC] = Integer.parseInt(tf.getText());
+                    tf.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
+                } else {
+                    puzzle[colC][rowC] = 0;
+                    tf.setStyle("-fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                }
+                if (rowC % (digits - 1) == 0 && rowC != 0) {
+                    colC++;
+                    rowC = 0;
+                } else
+                    rowC++;
+            }
+
+            State start = new State().start(puzzle);
+
+            long startTime = System.nanoTime();
+            int answer = SudokuSolver.startSolutionCheck(start);
+            long endTime = System.nanoTime();
+            long elapsedTime = endTime - startTime;
+
+            double elapsedMilli = (double) TimeUnit.MICROSECONDS.convert(Duration.ofNanos(elapsedTime)) / 1000;
+
+            timeBox.setText("It took " + elapsedMilli + " milliseconds!");
+
+            if (answer == 1) {
+                messageBox.setText("Solved!");
+                Color color = Color.rgb(0, 255, 0);
+                messageBox.setFill(color);
+            } else if (answer == -1) {
+                messageBox.setText("Cannot be solved!");
+                solved = false;
+                Color color = Color.rgb(255, 0, 0);
+                messageBox.setFill(color);
+            }
+        }
     }
 
     public static void fillPuzzle(State state) {
