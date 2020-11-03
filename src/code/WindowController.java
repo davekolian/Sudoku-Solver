@@ -861,6 +861,7 @@ public class WindowController implements Initializable {
     @FXML
     private void clearPuzzle() {
         messageBox.setText("");
+        timeBox.setText("");
         solved = false;
         error = false;
         for (TextField textField : listOfCells) {
