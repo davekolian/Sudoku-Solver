@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class State {
-
     List<Cell> cells = new ArrayList<>();
 
     public State() {
@@ -71,7 +70,6 @@ public class State {
 
         }
 
-
         return startState;
     }
 
@@ -121,5 +119,4 @@ public class State {
             throw new InternalError(e);
         }
     }
-
 }

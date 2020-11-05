@@ -1,7 +1,6 @@
 package code;
 
 public class Cell implements Cloneable {
-
     private int pos;
     private int row;
     private int col;

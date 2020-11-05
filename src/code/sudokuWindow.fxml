@@ -990,11 +990,12 @@
             <Font size="19.0" />
          </font>
       </Text>
-      <Pane id="helpMenu" fx:id="helpBox" layoutX="281.0" layoutY="157.0" prefHeight="61.0" prefWidth="286.0" visible="false">
+      <Pane id="helpMenu" fx:id="helpBox" layoutX="281.0" layoutY="157.0" prefHeight="75.0" prefWidth="286.0" visible="false">
          <children>
-            <Text layoutX="7.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 1: Click a cell and type a number to fill the cell." textAlignment="CENTER" wrappingWidth="272.40234375" />
-            <Text layoutX="4.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 2: Fill all the relevant cells to input the puzzle." textAlignment="CENTER" wrappingWidth="272.40234375" />
-            <Text layoutX="-3.0" layoutY="48.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 3: Then click on 'Solve' to solve your puzzle!" textAlignment="CENTER" wrappingWidth="272.40234375" />
+            <Text layoutX="3.0" layoutY="18.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 1: Choose the type of Sudoku puzzle." textAlignment="CENTER" wrappingWidth="231.60235595703125" />
+            <Text layoutX="7.0" layoutY="33.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 2: Click a cell and type a number to fill the cell." textAlignment="CENTER" wrappingWidth="272.40234375" />
+            <Text layoutX="3.0" layoutY="49.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 3: Fill all the relevant cells to input the puzzle." textAlignment="CENTER" wrappingWidth="272.40234375" />
+            <Text layoutX="2.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Step 4: Then click on 'Solve' to solve your puzzle!" textAlignment="CENTER" wrappingWidth="262.80230712890625" />
          </children>
       </Pane>
       <ComboBox fx:id="puzzleCombo" layoutX="553.0" layoutY="14.0" prefHeight="26.0" prefWidth="68.0" promptText="Type" />

@@ -472,8 +472,8 @@ public class WindowController implements Initializable {
     Pane gridTwo; //2x2
 
     @FXML
-    Pane gridThree; // 2x3
-
+    Pane gridThree; //2x3
+    
     public static ArrayList<TextField> listOfCells = new ArrayList<>();
     boolean error = false;
     boolean solved = false;
@@ -1039,5 +1039,4 @@ public class WindowController implements Initializable {
             }
         }
     }
-
 }
