@@ -63,3 +63,9 @@ Button:pressed {
   -fx-font-size: 33px;
   -fx-display-caret: false;
 }
+
+#gridFour TextField {
+  -fx-font-family: Arial;
+  -fx-font-size: 28px;
+  -fx-display-caret: false;
+}

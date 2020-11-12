@@ -104,6 +104,59 @@ public class State {
         return result;
     }
 
+    public String getValuesInDiag(int pos){
+        String result = "";
+        boolean left = false;
+        boolean right = false;
+
+        int[] leftDiag = {0, 10, 20, 30, 40, 50, 60, 70, 80};
+        int[] rightDiag = {8, 16, 24, 32, 40, 48, 56, 64, 72};
+
+        //left side check
+        for (int i : leftDiag){
+            if (pos == i) {
+                left = true;
+            }
+        }
+
+        for (int i : rightDiag){
+            if (pos == i) {
+                right = true;
+            }
+        }
+
+        if (left && !right) {
+            for (int j : leftDiag) {
+                result += cells.get(j).getValue();
+            }
+        } else if (right && !left) {
+            for (int j : rightDiag) {
+                result += cells.get(j).getValue();
+            }
+        } else if (left && right) {
+            for (int j : leftDiag) {
+                result += cells.get(j).getValue();
+            }
+            for (int j : rightDiag) {
+                result += cells.get(j).getValue();
+            }
+        }
+
+        return result;
+    }
+
+    public void toStringe() {
+        for(Cell cell : cells){
+            System.out.print(cell.getValue());
+            if((cell.getPos() + 1) % 3 == 0)
+                System.out.print(" ");
+            if((cell.getPos() + 1) % 9 == 0)
+                System.out.println();
+            if((cell.getPos() + 1) % 27 == 0)
+                System.out.println("-------------------------");
+        }
+    }
+
     //Function used to make a deep copy of the previous list of cells from the old state to the new state
     public static List<Cell> prevStateCells(List<Cell> origList) {
         try {

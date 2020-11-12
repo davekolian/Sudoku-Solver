@@ -1,0 +1,65 @@
+/*
+moreSolutions(parentNode, listOfNodes)
+        digits = sqrt(size of grid)
+        cantAdd = 0
+        found = 0
+
+        for each cell in parentNode do
+            if found == 1 then
+                return -1
+            endif
+            if cell value == 0 then
+                for i from 1 to digits do
+                    if isLegal(cell, i) then
+                        create newList = copy of parentNode list of cells
+                        change current cell value to i
+                        create new childNode
+                        add new childNode to listOfNodes
+                        if isFull(childNode) then
+                            fill the grid with solution
+                            return 1
+                        endif
+                        found = moreSolutions(childNode)
+                        if found == 1 then
+                            return 1
+                        endif
+                    else if cantAdd == digits then
+                        return -1
+                    else then
+                        cantAdd + 1
+                    endif
+                end for
+            endif
+        end for
+
+        return found*/
+
+/*isLegal(state, cell, newValue)
+    size = sqrt(grid size from state)
+
+    if newValue is between 1 and size then
+        return false
+    endif
+
+    Array ar1 = getValuesInBox(the box cell is in)
+    for every value in ar1 do
+        if value == newValue then
+            return false
+        endif
+    end for
+
+    Array ar2 = getValuesInCol(the column cell is in)
+    for every value in ar2 do
+        if value == newValue then
+            return false
+        endif
+    end for
+
+    Array ar3 = getValuesInRow(the row cell is in)
+    for every value in ar3 do
+        if value == newValue then
+            return false
+        endif
+    end for
+
+    return true*/

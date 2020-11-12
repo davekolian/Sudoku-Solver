@@ -19,6 +19,7 @@ import java.net.URL;
 import java.sql.Time;
 import java.time.Duration;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.ResourceBundle;
 import java.util.concurrent.TimeUnit;
 
@@ -457,6 +458,249 @@ public class WindowController implements Initializable {
     TextField w36;
 
     @FXML
+    TextField x1;
+
+    @FXML
+    TextField x2;
+
+    @FXML
+    TextField x3;
+
+    @FXML
+    TextField x4;
+
+    @FXML
+    TextField x5;
+
+    @FXML
+    TextField x6;
+
+    @FXML
+    TextField x7;
+
+    @FXML
+    TextField x8;
+
+    @FXML
+    TextField x9;
+
+    @FXML
+    TextField x10;
+
+    @FXML
+    TextField x11;
+
+    @FXML
+    TextField x12;
+
+    @FXML
+    TextField x13;
+
+    @FXML
+    TextField x14;
+
+    @FXML
+    TextField x15;
+
+    @FXML
+    TextField x16;
+
+    @FXML
+    TextField x17;
+
+    @FXML
+    TextField x18;
+
+    @FXML
+    TextField x19;
+
+    @FXML
+    TextField x20;
+
+    @FXML
+    TextField x21;
+
+    @FXML
+    TextField x22;
+
+    @FXML
+    TextField x23;
+
+    @FXML
+    TextField x24;
+
+    @FXML
+    TextField x25;
+
+    @FXML
+    TextField x26;
+
+    @FXML
+    TextField x27;
+
+    @FXML
+    TextField x28;
+
+    @FXML
+    TextField x29;
+
+    @FXML
+    TextField x30;
+
+    @FXML
+    TextField x31;
+
+    @FXML
+    TextField x32;
+
+    @FXML
+    TextField x33;
+
+    @FXML
+    TextField x34;
+
+    @FXML
+    TextField x35;
+
+    @FXML
+    TextField x36;
+
+    @FXML
+    TextField x37;
+
+    @FXML
+    TextField x38;
+
+    @FXML
+    TextField x39;
+
+    @FXML
+    TextField x40;
+
+    @FXML
+    TextField x41;
+
+    @FXML
+    TextField x42;
+
+    @FXML
+    TextField x43;
+
+    @FXML
+    TextField x44;
+
+    @FXML
+    TextField x45;
+
+    @FXML
+    TextField x46;
+
+    @FXML
+    TextField x47;
+
+    @FXML
+    TextField x48;
+
+    @FXML
+    TextField x49;
+
+    @FXML
+    TextField x50;
+
+    @FXML
+    TextField x51;
+
+    @FXML
+    TextField x52;
+
+    @FXML
+    TextField x53;
+
+    @FXML
+    TextField x54;
+
+    @FXML
+    TextField x55;
+
+    @FXML
+    TextField x56;
+
+    @FXML
+    TextField x57;
+
+    @FXML
+    TextField x58;
+
+    @FXML
+    TextField x59;
+
+    @FXML
+    TextField x60;
+
+    @FXML
+    TextField x61;
+
+    @FXML
+    TextField x62;
+
+    @FXML
+    TextField x63;
+
+    @FXML
+    TextField x64;
+
+    @FXML
+    TextField x65;
+
+    @FXML
+    TextField x66;
+
+    @FXML
+    TextField x67;
+
+    @FXML
+    TextField x68;
+
+    @FXML
+    TextField x69;
+
+    @FXML
+    TextField x70;
+
+    @FXML
+    TextField x71;
+
+    @FXML
+    TextField x72;
+
+    @FXML
+    TextField x73;
+
+    @FXML
+    TextField x74;
+
+    @FXML
+    TextField x75;
+
+    @FXML
+    TextField x76;
+
+    @FXML
+    TextField x77;
+
+    @FXML
+    TextField x78;
+
+    @FXML
+    TextField x79;
+
+    @FXML
+    TextField x80;
+
+    @FXML
+    TextField x81;
+
+    @FXML
     Text messageBox;
 
     @FXML
@@ -473,11 +717,15 @@ public class WindowController implements Initializable {
 
     @FXML
     Pane gridThree; //2x3
-    
+
+    @FXML
+    Pane gridFour; //X-Sudoku
+
     public static ArrayList<TextField> listOfCells = new ArrayList<>();
     boolean error = false;
     boolean solved = false;
     int type = 1;
+    String[] arrayOfGray = {"x1", "x11", "x21", "x31", "x41", "x51", "x61", "x71", "x81", "x9", "x17", "x25", "x33", "x49", "x57", "x65", "x73"};
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -488,7 +736,7 @@ public class WindowController implements Initializable {
         //System.out.println(gridOne.getChildren().size());
         checkType();
 
-        puzzleCombo.getItems().setAll("3x3", "2x3", "2x2");
+        puzzleCombo.getItems().setAll("3x3", "2x3", "2x2", "X-Sudoku");
         puzzleCombo.getSelectionModel().selectedItemProperty().addListener((options, old, newVal) -> {
             if (newVal.equals("3x3")) {
                 type = 1;
@@ -496,8 +744,11 @@ public class WindowController implements Initializable {
             } else if (newVal.equals("2x2")) {
                 type = 2;
                 checkType();
-            } else {
+            } else if (newVal.equals("2x3")) {
                 type = 3;
+                checkType();
+            } else {
+                type = 4;
                 checkType();
             }
 
@@ -509,8 +760,9 @@ public class WindowController implements Initializable {
         if (type == 1) {
             gridTwo.setVisible(false);
             gridThree.setVisible(false);
+            gridFour.setVisible(false);
             gridOne.setVisible(true);
-            type = 1;
+            //type = 1;
 
             clearPuzzle();
             listOfCells.clear();
@@ -596,11 +848,18 @@ public class WindowController implements Initializable {
             listOfCells.add(u79);
             listOfCells.add(u80);
             listOfCells.add(u81);
+
+            puzzleCombo.setPrefWidth(68);
+            puzzleCombo.setLayoutX(553);
+
         } else if (type == 2) {
             gridOne.setVisible(false);
             gridThree.setVisible(false);
+            gridFour.setVisible(false);
             gridTwo.setVisible(true);
-            type = 2;
+            puzzleCombo.setPrefWidth(68);
+            puzzleCombo.setLayoutX(553);
+            //type = 2;
 
             clearPuzzle();
             listOfCells.clear();
@@ -621,11 +880,14 @@ public class WindowController implements Initializable {
             listOfCells.add(v14);
             listOfCells.add(v15);
             listOfCells.add(v16);
-        } else {
+        } else if (type == 3) {
             gridOne.setVisible(false);
             gridTwo.setVisible(false);
+            gridFour.setVisible(false);
             gridThree.setVisible(true);
-            type = 3;
+            puzzleCombo.setPrefWidth(68);
+            puzzleCombo.setLayoutX(553);
+            //type = 3;
 
             clearPuzzle();
             listOfCells.clear();
@@ -667,7 +929,121 @@ public class WindowController implements Initializable {
             listOfCells.add(w35);
             listOfCells.add(w36);
 
+        } else {
+            gridOne.setVisible(false);
+            gridTwo.setVisible(false);
+            gridThree.setVisible(false);
+            gridFour.setVisible(true);
+            //type = 4;
+
+            clearPuzzle();
+            listOfCells.clear();
+
+            listOfCells.add(x1);
+            listOfCells.add(x2);
+            listOfCells.add(x3);
+            listOfCells.add(x4);
+            listOfCells.add(x5);
+            listOfCells.add(x6);
+            listOfCells.add(x7);
+            listOfCells.add(x8);
+            listOfCells.add(x9);
+            listOfCells.add(x10);
+            listOfCells.add(x11);
+            listOfCells.add(x12);
+            listOfCells.add(x13);
+            listOfCells.add(x14);
+            listOfCells.add(x15);
+            listOfCells.add(x16);
+            listOfCells.add(x17);
+            listOfCells.add(x18);
+            listOfCells.add(x19);
+            listOfCells.add(x20);
+            listOfCells.add(x21);
+            listOfCells.add(x22);
+            listOfCells.add(x23);
+            listOfCells.add(x24);
+            listOfCells.add(x25);
+            listOfCells.add(x26);
+            listOfCells.add(x27);
+            listOfCells.add(x28);
+            listOfCells.add(x29);
+            listOfCells.add(x30);
+            listOfCells.add(x31);
+            listOfCells.add(x32);
+            listOfCells.add(x33);
+            listOfCells.add(x34);
+            listOfCells.add(x35);
+            listOfCells.add(x36);
+            listOfCells.add(x37);
+            listOfCells.add(x38);
+            listOfCells.add(x39);
+            listOfCells.add(x40);
+            listOfCells.add(x41);
+            listOfCells.add(x42);
+            listOfCells.add(x43);
+            listOfCells.add(x44);
+            listOfCells.add(x45);
+            listOfCells.add(x46);
+            listOfCells.add(x47);
+            listOfCells.add(x48);
+            listOfCells.add(x49);
+            listOfCells.add(x50);
+            listOfCells.add(x51);
+            listOfCells.add(x52);
+            listOfCells.add(x53);
+            listOfCells.add(x54);
+            listOfCells.add(x55);
+            listOfCells.add(x56);
+            listOfCells.add(x57);
+            listOfCells.add(x58);
+            listOfCells.add(x59);
+            listOfCells.add(x60);
+            listOfCells.add(x61);
+            listOfCells.add(x62);
+            listOfCells.add(x63);
+            listOfCells.add(x64);
+            listOfCells.add(x65);
+            listOfCells.add(x66);
+            listOfCells.add(x67);
+            listOfCells.add(x68);
+            listOfCells.add(x69);
+            listOfCells.add(x70);
+            listOfCells.add(x71);
+            listOfCells.add(x72);
+            listOfCells.add(x73);
+            listOfCells.add(x74);
+            listOfCells.add(x75);
+            listOfCells.add(x76);
+            listOfCells.add(x77);
+            listOfCells.add(x78);
+            listOfCells.add(x79);
+            listOfCells.add(x80);
+            listOfCells.add(x81);
+
+            puzzleCombo.setPrefWidth(97);
+            puzzleCombo.setLayoutX(524);
+
+            x1.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x11.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x21.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x31.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x51.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x61.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x71.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x81.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+
+            x9.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x17.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x25.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x33.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x49.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x57.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x65.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            x73.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
         }
+
 
         for (TextField textField : listOfCells) {
             textField.textProperty().addListener(new ChangeListener<String>() {
@@ -709,7 +1085,7 @@ public class WindowController implements Initializable {
         int digits;
         int limit;
 
-        if (type == 1) {
+        if (type == 1 || type == 4) {
             digits = 9;
             limit = 21;
         } else if (type == 2) {
@@ -717,7 +1093,7 @@ public class WindowController implements Initializable {
             limit = 4;
         } else {
             digits = 6;
-            limit = 10;
+            limit = 8;
         }
 
         if (countDigits() < limit && !error) {
@@ -734,6 +1110,7 @@ public class WindowController implements Initializable {
             int rowC = 0;
             int colC = 0;
             solved = true;
+
             for (TextField tf : listOfCells) {
                 if (!tf.getText().equals("")) {
                     puzzle[colC][rowC] = Integer.parseInt(tf.getText());
@@ -749,21 +1126,132 @@ public class WindowController implements Initializable {
                     rowC++;
             }
 
+            if (type == 4){
+                //1 11 21 31 41 51 61 71 81 9 17 25 33 41 49 57 65 73
+                if(x1.getText().equals("")) {
+                    x1.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x1.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x11.getText().equals("")) {
+                    x11.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x11.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x21.getText().equals("")) {
+                    x21.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x21.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x31.getText().equals("")) {
+                    x31.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x31.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x41.getText().equals("")) {
+                    x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x51.getText().equals("")) {
+                    x51.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x51.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x61.getText().equals("")) {
+                    x61.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x61.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x71.getText().equals("")) {
+                    x71.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x71.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x81.getText().equals("")) {
+                    x81.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x81.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x9.getText().equals("")) {
+                    x9.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x9.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x17.getText().equals("")) {
+                    x17.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x17.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x25.getText().equals("")) {
+                    x25.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x25.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x33.getText().equals("")) {
+                    x33.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x33.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x41.getText().equals("")) {
+                    x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x49.getText().equals("")) {
+                    x49.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x49.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x57.getText().equals("")) {
+                    x57.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x57.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x65.getText().equals("")) {
+                    x65.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x65.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+                if(x73.getText().equals("")) {
+                    x73.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                } else {
+                    x73.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                }
+
+            }
+
             State start = new State().start(puzzle);
 
             long startTime = System.nanoTime();
-            int answer = SudokuSolver.startSolutionCheck(start);
+            int answer = SudokuSolver.startSolutionCheck(start, type);
             long endTime = System.nanoTime();
             long elapsedTime = endTime - startTime;
 
-            double elapsedMilli = (double) TimeUnit.MICROSECONDS.convert(Duration.ofNanos(elapsedTime)) / 1000;
-
-            timeBox.setText("It took " + elapsedMilli + " milliseconds!");
+            double elapsedSeconds = (double) TimeUnit.MICROSECONDS.convert(Duration.ofNanos(elapsedTime)) / 1000000;
 
             if (answer == 1) {
                 messageBox.setText("Solved!");
                 Color color = Color.rgb(0, 255, 0);
                 messageBox.setFill(color);
+                timeBox.setText("It took " + elapsedSeconds + " seconds!");
             } else if (answer == -1) {
                 messageBox.setText("Cannot be solved!");
                 solved = false;
@@ -798,19 +1286,47 @@ public class WindowController implements Initializable {
             int[] rowArray = getRowVals(textField);
             int[] colArray = getColVals(textField);
             int[] boxArray = getBoxVals(textField);
-            int[] finalArray = new int[rowArray.length + colArray.length + boxArray.length];
+            int[] diagArray = getDiagVals(textField);
+            int[] finalArray;
+            if (type != 4) {
+                finalArray = new int[rowArray.length + colArray.length + boxArray.length];
+            } else {
+                if (diagArray.length > 1)
+                    finalArray = new int[rowArray.length + colArray.length + boxArray.length + diagArray.length];
+                else
+                    finalArray = new int[rowArray.length + colArray.length + boxArray.length];
+            }
 
-            System.arraycopy(rowArray, 0, finalArray, 0, rowArray.length); //copies first array into new array
-            System.arraycopy(colArray, 0, finalArray, rowArray.length, colArray.length);
-            System.arraycopy(boxArray, 0, finalArray, rowArray.length + colArray.length, boxArray.length);
+            if (type != 4) {
+                System.arraycopy(rowArray, 0, finalArray, 0, rowArray.length); //copies first array into new array
+                System.arraycopy(colArray, 0, finalArray, rowArray.length, colArray.length);
+                System.arraycopy(boxArray, 0, finalArray, rowArray.length + colArray.length, boxArray.length);
+            } else {
+                System.arraycopy(rowArray, 0, finalArray, 0, rowArray.length); //copies first array into new array
+                System.arraycopy(colArray, 0, finalArray, rowArray.length, colArray.length);
+                System.arraycopy(boxArray, 0, finalArray, rowArray.length + colArray.length, boxArray.length);
+                if (diagArray.length > 1)
+                    System.arraycopy(diagArray, 0, finalArray, rowArray.length + colArray.length + boxArray.length, diagArray.length);
+            }
+
+            String cssExtra = "-fx-control-inner-background: #FFFFFF;";
+
+            if (type == 4) {
+                for (String s : arrayOfGray) {
+                    if (textField.getId().equals(s)) {
+                        cssExtra = "-fx-control-inner-background: #CDCDCD;";
+                        break;
+                    }
+                }
+            }
 
             for (Integer i : finalArray) {
                 if (textField.getText().equals(listOfCells.get(i - 1).getText()) && textField != listOfCells.get(i - 1)) {
-                    textField.setStyle("-fx-text-inner-color: #FF0000; -fx-display-caret: false");
+                    textField.setStyle(cssExtra + "-fx-text-inner-color: #FF0000; -fx-display-caret: false");
                     error = true;
                     break;
                 } else {
-                    textField.setStyle("-fx-text-inner-color: #000000; -fx-display-caret: false");
+                    textField.setStyle(cssExtra + "-fx-text-inner-color: #000000; -fx-display-caret: false");
                     error = false;
                     messageBox.setText("");
                 }
@@ -820,7 +1336,7 @@ public class WindowController implements Initializable {
 
     private int[] getRowVals(TextField textField) {
         int maxDigits;
-        if (type == 1) {
+        if (type == 1 || type == 4) {
             maxDigits = 9;
         } else if (type == 2) {
             maxDigits = 4;
@@ -851,7 +1367,7 @@ public class WindowController implements Initializable {
 
     private int[] getColVals(TextField textField) {
         int maxDigits;
-        if (type == 1) {
+        if (type == 1 || type == 4) {
             maxDigits = 9;
         } else if (type == 2) {
             maxDigits = 4;
@@ -880,7 +1396,7 @@ public class WindowController implements Initializable {
 
     private int[] getBoxVals(TextField textField) {
         int maxDigits;
-        if (type == 1) {
+        if (type == 1 || type == 4) {
             maxDigits = 9;
         } else if (type == 2) {
             maxDigits = 4;
@@ -905,7 +1421,7 @@ public class WindowController implements Initializable {
         String temp = textField.getParent().getId();
         box = Integer.parseInt(temp.substring(4, 5));
 
-        if (type == 1) {
+        if (type == 1 || type == 4) {
             switch (box) {
                 case 1:
                     start = 1;
@@ -1007,11 +1523,64 @@ public class WindowController implements Initializable {
         return result;
     }
 
+    private int[] getDiagVals(TextField textField) {
+        String[] aoG1 = new String[9];
+        String[] aoG2 = new String[8];
+
+        System.arraycopy(arrayOfGray, 0, aoG1, 0, 9);
+        System.arraycopy(arrayOfGray, 9, aoG2, 0, 8);
+
+        int[] result = new int[9];
+        boolean left = false;
+        boolean right = false;
+
+        for (String s : aoG1) {
+            if (textField.getId().equals(s)) {
+                left = true;
+                break;
+            }
+        }
+
+        for (String s : aoG2) {
+            if (textField.getId().equals(s)) {
+                right = true;
+                break;
+            }
+        }
+
+        int counter = 0;
+        if (left && !right) {
+            for (String s : aoG1) {
+                int val = Integer.parseInt(s.substring(1));
+                result[counter] = val;
+                counter++;
+            }
+        } else if (right && !left) {
+            for (String s : aoG2) {
+                int val = Integer.parseInt(s.substring(1));
+                result[counter] = val;
+                counter++;
+            }
+            result[8] = 41;
+        } else if (left && right) {
+            for (String s : arrayOfGray) {
+                int val = Integer.parseInt(s.substring(1));
+                result[counter] = val;
+                counter++;
+            }
+        } else {
+            result = new int[1];
+        }
+
+        return result;
+    }
+
     @FXML
     public void helpButton(MouseEvent event) {
         if (event.getEventType() == MouseEvent.MOUSE_ENTERED) {
             helpBox.setVisible(true);
             helpBox.setLayoutX(event.getSceneX() - helpBox.getWidth());
+            helpBox.setLayoutY(event.getSceneY());
         } else if (event.getEventType() == MouseEvent.MOUSE_EXITED) {
             helpBox.setVisible(false);
         }
@@ -1019,23 +1588,25 @@ public class WindowController implements Initializable {
 
     @FXML
     public void demoButton(Event event) {
-        int counter = 0;
-        int[][] input = {{8, 0, 0, 0, 0, 0, 0, 0, 0}, //Hardest puzzle ever
-                {0, 0, 3, 6, 0, 0, 0, 0, 0},
-                {0, 7, 0, 0, 9, 0, 2, 0, 0},
-                {0, 5, 0, 0, 0, 7, 0, 0, 0},
-                {0, 0, 0, 0, 4, 5, 7, 0, 0},
-                {0, 0, 0, 1, 0, 0, 0, 3, 0},
-                {0, 0, 1, 0, 0, 0, 0, 6, 8},
-                {0, 0, 8, 5, 0, 0, 0, 1, 0},
-                {0, 9, 0, 0, 0, 0, 4, 0, 0}};
+        if (type == 1) {
+            int counter = 0;
+            int[][] input = {{8, 0, 0, 0, 0, 0, 0, 0, 0}, //Hardest puzzle ever
+                    {0, 0, 3, 6, 0, 0, 0, 0, 0},
+                    {0, 7, 0, 0, 9, 0, 2, 0, 0},
+                    {0, 5, 0, 0, 0, 7, 0, 0, 0},
+                    {0, 0, 0, 0, 4, 5, 7, 0, 0},
+                    {0, 0, 0, 1, 0, 0, 0, 3, 0},
+                    {0, 0, 1, 0, 0, 0, 0, 6, 8},
+                    {0, 0, 8, 5, 0, 0, 0, 1, 0},
+                    {0, 9, 0, 0, 0, 0, 4, 0, 0}};
 
-        for (int i = 0; i < input[0].length; i++) {
-            for (int j = 0; j < input[0].length; j++) {
-                if (input[i][j] != 0) listOfCells.get(counter).setText(String.valueOf(input[i][j]));
-                else listOfCells.get(counter).setText("");
+            for (int i = 0; i < input[0].length; i++) {
+                for (int j = 0; j < input[0].length; j++) {
+                    if (input[i][j] != 0) listOfCells.get(counter).setText(String.valueOf(input[i][j]));
+                    else listOfCells.get(counter).setText("");
 
-                counter++;
+                    counter++;
+                }
             }
         }
     }

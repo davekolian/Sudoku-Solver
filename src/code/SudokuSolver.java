@@ -7,8 +7,11 @@ import static java.lang.System.exit;
 
 public class SudokuSolver {
 
-    public static int startSolutionCheck(State state) {
+    public static int type;
+
+    public static int startSolutionCheck(State state, int typ) {
         ArrayList<Node> nodes = new ArrayList<>(); //List of all nodes
+        type = typ;
 
         nodes.add(new Node(state, null));
 
@@ -19,7 +22,6 @@ public class SudokuSolver {
 
     //Function which checks if an operation is allowed
     public static Boolean isLegal(State state, Cell cell, int newValue) {
-
         int size = (int) Math.sqrt(state.getCells().size()); //16 -> 4, 36 -> 6, 81 -> 9
         if (newValue < 1 || newValue > size) return false;
 
@@ -39,6 +41,15 @@ public class SudokuSolver {
         char[] ar3 = state.getValuesInRow(cell.getRow()).toCharArray();
         for (char value : ar3) {
             if (Character.getNumericValue(value) == newValue) return false;
+        }
+
+        if (type == 4) {
+            char[] ar4 = state.getValuesInDiag(cell.getPos()).toCharArray();
+            if (ar4.length != 0) {
+                for (char value : ar4) {
+                    if (Character.getNumericValue(value) == newValue) return false;
+                }
+            }
         }
 
         return true;
@@ -68,8 +79,8 @@ public class SudokuSolver {
                         List<Cell> newList = State.prevStateCells(parentNode.getState().getCells()); //makes a deep copy of the prev state's list of cells
                         newList.get(cell.getPos()).setValue(i);
                         Node childNode = new Node(new State(newList), parentNode);
-                        listOfNodes.add(childNode);
-                        //System.out.println(childNode.getState());
+                        //listOfNodes.add(childNode);
+                        //childNode.getState().toStringe();
                         if (isFull(childNode.getState())) {
                             //System.out.println("Answer State: ");
                             //System.out.println(childNode.getState());
@@ -79,7 +90,7 @@ public class SudokuSolver {
                             return 1;
                         }
                         found = moreSolutions(childNode, listOfNodes); //call the startSolutionCheck again to see if it has more childNodes
-                        if(found == 1) return 1;
+                        if (found == 1) return 1;
                     } else if (cantAdd == digits) {
                         return -1; //returns to the prev node if it cannot find more childNodes and continue checking if there are other possible nodes with the parentNode
                     } else {
@@ -92,3 +103,5 @@ public class SudokuSolver {
         return found;
     }
 }
+
+
