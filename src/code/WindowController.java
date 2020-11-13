@@ -725,7 +725,7 @@ public class WindowController implements Initializable {
     boolean error = false;
     boolean solved = false;
     int type = 1;
-    String[] arrayOfGray = {"x1", "x11", "x21", "x31", "x41", "x51", "x61", "x71", "x81", "x9", "x17", "x25", "x33", "x49", "x57", "x65", "x73"};
+    TextField[] arrayOfGray = new TextField[17];
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -749,6 +749,26 @@ public class WindowController implements Initializable {
                 checkType();
             } else {
                 type = 4;
+                // = {x1, x11, x21, x31, x41, x51, x61, x71, x81, x9, x17, x25, x33, x49, x57, x65, x73};
+                arrayOfGray[0] = x1;
+                arrayOfGray[1] = x11;
+                arrayOfGray[2] = x21;
+                arrayOfGray[3] = x31;
+                arrayOfGray[4] = x41;
+                arrayOfGray[5] = x51;
+                arrayOfGray[6] = x61;
+                arrayOfGray[7] = x71;
+                arrayOfGray[8] = x81;
+                arrayOfGray[9] =  x9;
+                arrayOfGray[10] = x17;
+                arrayOfGray[11] = x25;
+                arrayOfGray[12] = x33;
+                arrayOfGray[13] = x49;
+                arrayOfGray[14] = x57;
+                arrayOfGray[15] = x65;
+                arrayOfGray[16] = x73;
+
+
                 checkType();
             }
 
@@ -762,7 +782,9 @@ public class WindowController implements Initializable {
             gridThree.setVisible(false);
             gridFour.setVisible(false);
             gridOne.setVisible(true);
-            //type = 1;
+
+            puzzleCombo.setPrefWidth(68);
+            puzzleCombo.setLayoutX(553);
 
             clearPuzzle();
             listOfCells.clear();
@@ -848,18 +870,14 @@ public class WindowController implements Initializable {
             listOfCells.add(u79);
             listOfCells.add(u80);
             listOfCells.add(u81);
-
-            puzzleCombo.setPrefWidth(68);
-            puzzleCombo.setLayoutX(553);
-
         } else if (type == 2) {
             gridOne.setVisible(false);
             gridThree.setVisible(false);
             gridFour.setVisible(false);
             gridTwo.setVisible(true);
+
             puzzleCombo.setPrefWidth(68);
             puzzleCombo.setLayoutX(553);
-            //type = 2;
 
             clearPuzzle();
             listOfCells.clear();
@@ -885,9 +903,9 @@ public class WindowController implements Initializable {
             gridTwo.setVisible(false);
             gridFour.setVisible(false);
             gridThree.setVisible(true);
+
             puzzleCombo.setPrefWidth(68);
             puzzleCombo.setLayoutX(553);
-            //type = 3;
 
             clearPuzzle();
             listOfCells.clear();
@@ -934,7 +952,9 @@ public class WindowController implements Initializable {
             gridTwo.setVisible(false);
             gridThree.setVisible(false);
             gridFour.setVisible(true);
-            //type = 4;
+
+            puzzleCombo.setPrefWidth(97);
+            puzzleCombo.setLayoutX(524);
 
             clearPuzzle();
             listOfCells.clear();
@@ -1021,29 +1041,11 @@ public class WindowController implements Initializable {
             listOfCells.add(x80);
             listOfCells.add(x81);
 
-            puzzleCombo.setPrefWidth(97);
-            puzzleCombo.setLayoutX(524);
+            for (TextField textField : arrayOfGray) {
+                textField.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
+            }
 
-            x1.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x11.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x21.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x31.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x51.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x61.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x71.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x81.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-
-            x9.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x17.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x25.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x33.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x49.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x57.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x65.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
-            x73.setStyle("-fx-control-inner-background: #CDCDCD; -fx-display-caret: false");
         }
-
 
         for (TextField textField : listOfCells) {
             textField.textProperty().addListener(new ChangeListener<String>() {
@@ -1126,116 +1128,14 @@ public class WindowController implements Initializable {
                     rowC++;
             }
 
-            if (type == 4){
-                //1 11 21 31 41 51 61 71 81 9 17 25 33 41 49 57 65 73
-                if(x1.getText().equals("")) {
-                    x1.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x1.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+            if (type == 4) {
+                for (TextField textField : arrayOfGray) {
+                    if (textField.getText().equals("")) {
+                        textField.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
+                    } else {
+                        textField.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
+                    }
                 }
-
-                if(x11.getText().equals("")) {
-                    x11.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x11.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x21.getText().equals("")) {
-                    x21.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x21.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x31.getText().equals("")) {
-                    x31.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x31.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x41.getText().equals("")) {
-                    x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x51.getText().equals("")) {
-                    x51.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x51.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x61.getText().equals("")) {
-                    x61.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x61.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x71.getText().equals("")) {
-                    x71.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x71.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x81.getText().equals("")) {
-                    x81.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x81.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x9.getText().equals("")) {
-                    x9.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x9.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x17.getText().equals("")) {
-                    x17.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x17.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x25.getText().equals("")) {
-                    x25.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x25.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x33.getText().equals("")) {
-                    x33.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x33.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x41.getText().equals("")) {
-                    x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x41.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x49.getText().equals("")) {
-                    x49.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x49.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x57.getText().equals("")) {
-                    x57.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x57.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x65.getText().equals("")) {
-                    x65.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x65.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
-                if(x73.getText().equals("")) {
-                    x73.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #0000FF; -fx-display-caret: false");
-                } else {
-                    x73.setStyle("-fx-control-inner-background: #CDCDCD; -fx-text-inner-color: #000000; -fx-display-caret: false");
-                }
-
             }
 
             State start = new State().start(puzzle);
@@ -1312,8 +1212,8 @@ public class WindowController implements Initializable {
             String cssExtra = "-fx-control-inner-background: #FFFFFF;";
 
             if (type == 4) {
-                for (String s : arrayOfGray) {
-                    if (textField.getId().equals(s)) {
+                for (TextField tf2 : arrayOfGray) {
+                    if (textField.equals(tf2)) {
                         cssExtra = "-fx-control-inner-background: #CDCDCD;";
                         break;
                     }
@@ -1524,11 +1424,8 @@ public class WindowController implements Initializable {
     }
 
     private int[] getDiagVals(TextField textField) {
-        String[] aoG1 = new String[9];
-        String[] aoG2 = new String[8];
-
-        System.arraycopy(arrayOfGray, 0, aoG1, 0, 9);
-        System.arraycopy(arrayOfGray, 9, aoG2, 0, 8);
+        String[] aoG1 = {"1", "11", "21", "31", "41", "51", "61", "71", "81"};
+        String[] aoG2 = {"9", "17", "25", "33", "41", "49", "57", "65", "73"};
 
         int[] result = new int[9];
         boolean left = false;
@@ -1551,20 +1448,26 @@ public class WindowController implements Initializable {
         int counter = 0;
         if (left && !right) {
             for (String s : aoG1) {
-                int val = Integer.parseInt(s.substring(1));
+                int val = Integer.parseInt(s);
                 result[counter] = val;
                 counter++;
             }
         } else if (right && !left) {
             for (String s : aoG2) {
-                int val = Integer.parseInt(s.substring(1));
+                int val = Integer.parseInt(s);
                 result[counter] = val;
                 counter++;
             }
             result[8] = 41;
         } else if (left && right) {
-            for (String s : arrayOfGray) {
-                int val = Integer.parseInt(s.substring(1));
+            result = new int[18];
+            for (String s : aoG1) {
+                int val = Integer.parseInt(s);
+                result[counter] = val;
+                counter++;
+            }
+            for (String s : aoG2) {
+                int val = Integer.parseInt(s);
                 result[counter] = val;
                 counter++;
             }

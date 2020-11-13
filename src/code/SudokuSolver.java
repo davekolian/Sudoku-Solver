@@ -3,15 +3,13 @@ package code;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.lang.System.exit;
-
 public class SudokuSolver {
 
-    public static int type;
+    public static int mainType;
 
-    public static int startSolutionCheck(State state, int typ) {
+    public static int startSolutionCheck(State state, int type) {
         ArrayList<Node> nodes = new ArrayList<>(); //List of all nodes
-        type = typ;
+        mainType = type;
 
         nodes.add(new Node(state, null));
 
@@ -43,7 +41,8 @@ public class SudokuSolver {
             if (Character.getNumericValue(value) == newValue) return false;
         }
 
-        if (type == 4) {
+        //Checks all values in the selected cell's diagonal with newValue IF X-Sudoku is selected
+        if (mainType == 4) {
             char[] ar4 = state.getValuesInDiag(cell.getPos()).toCharArray();
             if (ar4.length != 0) {
                 for (char value : ar4) {
